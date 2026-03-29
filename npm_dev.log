@@ -1,0 +1,35 @@
+
+> my-v0-project@0.1.0 dev
+> next dev
+
+  ▲ Next.js 14.2.25
+  - Local:        http://localhost:3000
+
+ ✓ Starting...
+ ✓ Ready in 1790ms
+ ○ Compiling /_not-found ...
+ ✓ Compiled /_not-found in 11.9s (510 modules)
+ GET /chatbot-whatsapp-pour-restaurants 404 in 12227ms
+ GET /chatbot-whatsapp-pour-e-commerce 404 in 34ms
+ ✓ Compiled in 409ms (251 modules)
+ ✓ Compiled in 433ms (237 modules)
+ ✓ Compiled in 403ms (251 modules)
+[Error: ENOENT: no such file or directory, stat '/app/.next/cache/webpack/client-development/2.pack.gz'] {
+  errno: -2,
+  code: 'ENOENT',
+  syscall: 'stat',
+  path: '/app/.next/cache/webpack/client-development/2.pack.gz'
+}
+ ⨯ unhandledRejection: [Error: ENOENT: no such file or directory, stat '/app/.next/cache/webpack/client-development/2.pack.gz'] {
+  errno: -2,
+  code: 'ENOENT',
+  syscall: 'stat',
+  path: '/app/.next/cache/webpack/client-development/2.pack.gz'
+}
+ ⨯ unhandledRejection: [Error: ENOENT: no such file or directory, stat '/app/.next/cache/webpack/client-development/2.pack.gz'] {
+  errno: -2,
+  code: 'ENOENT',
+  syscall: 'stat',
+  path: '/app/.next/cache/webpack/client-development/2.pack.gz'
+}
+<w> [webpack.cache.PackFileCacheStrategy] Caching failed for pack: Error: ENOENT: no such file or directory, stat '/app/.next/cache/webpack/client-development/2.pack.gz'
