@@ -87,9 +87,11 @@ export function Header() {
 
             <button
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-              className="lg:hidden p-2 text-foreground/70 hover:text-foreground transition-colors rounded-xl bg-white/5"
+              className="lg:hidden p-3 m-1 text-foreground/70 hover:text-foreground transition-colors rounded-xl bg-white/5 focus:outline-none focus:ring-2 focus:ring-blue-500/50 active:scale-95 touch-manipulation"
+              aria-expanded={isMobileMenuOpen}
+              aria-label={isMobileMenuOpen ? "Fermer le menu" : "Ouvrir le menu"}
             >
-              {isMobileMenuOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
+              {isMobileMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
             </button>
           </div>
         </div>
@@ -99,46 +101,60 @@ export function Header() {
       <AnimatePresence>
         {isMobileMenuOpen && (
           <motion.div
-            initial={{ opacity: 0, scale: 0.95, y: -20 }}
-            animate={{ opacity: 1, scale: 1, y: 0 }}
-            exit={{ opacity: 0, scale: 0.95, y: -20 }}
-            className="fixed top-20 left-1/2 -translate-x-1/2 w-[90%] max-w-sm z-[45] lg:hidden"
+            key="mobile-menu-container"
+            className="lg:hidden"
           >
-            <div className="bg-background/95 backdrop-blur-2xl border border-white/10 rounded-2xl p-6 shadow-2xl">
-              <nav className="flex flex-col gap-4">
-                {navLinks.map((link) => (
-                  <a
-                    key={link.name}
-                    href={link.href}
-                    onClick={() => setIsMobileMenuOpen(false)}
-                    className="text-lg font-medium text-foreground/80 hover:text-foreground hover:bg-white/5 p-3 rounded-xl transition-all"
-                  >
-                    {link.name}
-                  </a>
-                ))}
-                <div className="pt-4 border-t border-white/10 flex flex-col gap-3">
-                  <Button
-                    data-cal-namespace="15min"
-                    data-cal-link="kamtech/15min"
-                    data-cal-config='{"layout":"month_view","useSlotsViewOnSmallScreen":"true"}'
-                    className="bg-blue-600 hover:bg-blue-700 text-white rounded-xl w-full"
-                    onClick={() => setIsMobileMenuOpen(false)}
-                  >
-                    Obtenir mon audit gratuit
-                  </Button>
-                  <Button
-                    variant="outline"
-                    className="border-white/20 text-white hover:bg-white/5 rounded-xl w-full"
-                    onClick={() => {
-                      openWhatsAppChat("parlerExpert")
-                      setIsMobileMenuOpen(false)
-                    }}
-                  >
-                    Parler à un expert
-                  </Button>
-                </div>
-              </nav>
-            </div>
+            <motion.div
+              key="mobile-menu-backdrop"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              onClick={() => setIsMobileMenuOpen(false)}
+              className="fixed inset-0 bg-black/60 backdrop-blur-sm z-[40]"
+            />
+            <motion.div
+              key="mobile-menu-content"
+              initial={{ opacity: 0, scale: 0.95, y: -20 }}
+              animate={{ opacity: 1, scale: 1, y: 0 }}
+              exit={{ opacity: 0, scale: 0.95, y: -20 }}
+              className="fixed top-24 left-1/2 -translate-x-1/2 w-[90%] max-w-md z-[45]"
+            >
+              <div className="bg-background/95 backdrop-blur-2xl border border-white/10 rounded-2xl p-6 shadow-2xl overflow-y-auto max-h-[calc(100vh-8rem)] overscroll-contain">
+                <nav className="flex flex-col gap-4">
+                  {navLinks.map((link) => (
+                    <a
+                      key={link.name}
+                      href={link.href}
+                      onClick={() => setIsMobileMenuOpen(false)}
+                      className="text-lg font-medium text-foreground/80 hover:text-foreground hover:bg-white/5 p-3 rounded-xl transition-all"
+                    >
+                      {link.name}
+                    </a>
+                  ))}
+                  <div className="pt-4 border-t border-white/10 flex flex-col gap-3">
+                    <Button
+                      data-cal-namespace="15min"
+                      data-cal-link="kamtech/15min"
+                      data-cal-config='{"layout":"month_view","useSlotsViewOnSmallScreen":"true"}'
+                      className="bg-blue-600 hover:bg-blue-700 text-white rounded-xl w-full"
+                      onClick={() => setIsMobileMenuOpen(false)}
+                    >
+                      Réserver un audit
+                    </Button>
+                    <Button
+                      variant="outline"
+                      className="border-white/20 text-white hover:bg-white/5 rounded-xl w-full"
+                      onClick={() => {
+                        openWhatsAppChat("parlerExpert")
+                        setIsMobileMenuOpen(false)
+                      }}
+                    >
+                      Parler à un expert
+                    </Button>
+                  </div>
+                </nav>
+              </div>
+            </motion.div>
           </motion.div>
         )}
       </AnimatePresence>

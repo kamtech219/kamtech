@@ -159,6 +159,8 @@ export function ParticleTextEffect({ words = DEFAULT_WORDS }: ParticleTextEffect
   }
 
   const nextWord = (word: string, canvas: HTMLCanvasElement) => {
+    if (canvas.width === 0 || canvas.height === 0) return;
+
     // Create off-screen canvas for text rendering
     const offscreenCanvas = document.createElement("canvas")
     offscreenCanvas.width = canvas.width
@@ -259,6 +261,12 @@ export function ParticleTextEffect({ words = DEFAULT_WORDS }: ParticleTextEffect
     const ctx = canvas.getContext("2d")!
     const particles = particlesRef.current
 
+    // Handle mobile case where canvas might have zero dimensions due to display:none
+    if (canvas.width === 0 || canvas.height === 0) {
+      animationRef.current = requestAnimationFrame(animate)
+      return
+    }
+
     // Background with motion blur
     ctx.fillStyle = "rgba(0, 0, 0, 0.1)"
     ctx.fillRect(0, 0, canvas.width, canvas.height)
@@ -298,7 +306,9 @@ export function ParticleTextEffect({ words = DEFAULT_WORDS }: ParticleTextEffect
     frameCountRef.current++
     if (frameCountRef.current % 240 === 0) {
       wordIndexRef.current = (wordIndexRef.current + 1) % words.length
-      nextWord(words[wordIndexRef.current], canvas)
+      if (canvas.width > 0 && canvas.height > 0) {
+          nextWord(words[wordIndexRef.current], canvas)
+      }
     }
 
     animationRef.current = requestAnimationFrame(animate)
@@ -320,7 +330,9 @@ export function ParticleTextEffect({ words = DEFAULT_WORDS }: ParticleTextEffect
     resizeCanvas()
 
     // Initialize with first word
-    nextWord(words[0], canvas)
+    if (canvas.width > 0 && canvas.height > 0) {
+        nextWord(words[0], canvas)
+    }
 
     // Start animation
     animate()
@@ -352,7 +364,9 @@ export function ParticleTextEffect({ words = DEFAULT_WORDS }: ParticleTextEffect
     const handleResize = () => {
       resizeCanvas()
       // Reinitialize particles with new dimensions
-      nextWord(words[wordIndexRef.current], canvas)
+      if (canvas.width > 0 && canvas.height > 0) {
+          nextWord(words[wordIndexRef.current], canvas)
+      }
     }
 
     canvas.addEventListener("mousedown", handleMouseDown)

@@ -126,6 +126,7 @@ export default function ContactSection() {
                       onChange={(e) => setName(e.target.value)}
                       placeholder="Jean Dupont"
                       required
+                      autoComplete="name"
                       className="bg-white/5 border-white/10 text-white placeholder:text-gray-600 h-12 focus:ring-blue-500/50"
                     />
                   </motion.div>
@@ -144,6 +145,8 @@ export default function ContactSection() {
                       onChange={(e) => setEmail(e.target.value)}
                       placeholder="contact@entreprise.com"
                       required
+                      autoComplete="email"
+                      inputMode="email"
                       className="bg-white/5 border-white/10 text-white placeholder:text-gray-600 h-12 focus:ring-blue-500/50"
                     />
                   </motion.div>
@@ -162,6 +165,7 @@ export default function ContactSection() {
                     onChange={(e) => setMessage(e.target.value)}
                     placeholder="Comment pouvons-nous vous aider ?"
                     required
+                    inputMode="text"
                     className="bg-white/5 border-white/10 text-white placeholder:text-gray-600 h-40 resize-none focus:ring-blue-500/50"
                   />
                 </motion.div>

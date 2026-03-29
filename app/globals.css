@@ -134,8 +134,14 @@
   * {
     @apply border-border outline-ring/50;
   }
+
+  html {
+    background-color: #000000;
+  }
+
   body {
     @apply bg-background text-foreground;
+    background-color: #000000; /* Critical inline style for FOUC prevention */
   }
 }
 
