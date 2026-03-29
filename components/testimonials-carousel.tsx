@@ -5,56 +5,55 @@ import useEmblaCarousel from 'embla-carousel-react';
 import { cn } from '@/lib/utils';
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
 import { motion } from 'framer-motion';
-import { Quote } from 'lucide-react';
+import { Quote, TrendingUp, Clock, Zap } from 'lucide-react';
 
 const kamtechTestimonials = [
   {
-    text: "Kamtech IA a radicalement transformé notre gestion client. On gagne 20h par semaine sur WhatsApp tout en convertissant plus.",
+    text: "Depuis l'intégration, l'IA répond à 85% de nos requêtes clients sans intervention humaine. Nous avons économisé plus de 15h par semaine.",
+    metric: "-15h/semaine",
     imageSrc: 'https://i.pravatar.cc/150?u=1',
     name: 'Jean-Christophe P.',
     username: '@jcp_immo',
     role: 'Dirigeant Agence Immobilière',
   },
   {
-    text: "Choquée par la fluidité de l'IA dès le premier jour. Elle répond aux questions complexes et prend les RDV toute seule.",
+    text: "Notre taux de conversion sur WhatsApp a bondi de 35% en seulement 2 semaines. L'IA qualifie parfaitement les prospects avant la vente.",
+    metric: "+35% de conversion",
     imageSrc: 'https://i.pravatar.cc/150?u=2',
     name: 'Sophie L.',
     username: '@sophie_market',
     role: 'CEO E-commerce',
   },
   {
-    text: "On a lancé notre automatisation en 48h. Déjà 12 leads qualifiés en une semaine. L'audit gratuit était très précis.",
+    text: "L'automatisation nous a permis de traiter 3 fois plus de leads entrants sans embaucher de commercial supplémentaire. C'est magique.",
+    metric: "x3 Leads traités",
     imageSrc: 'https://i.pravatar.cc/150?u=3',
     name: 'Marc-Antoine G.',
     username: '@mag_conseil',
     role: 'Consultant Business',
   },
   {
-    text: "Plus besoin de répondre aux mêmes questions 50 fois par jour. L'IA gère le support 24/7 et on se concentre sur la vente.",
+    text: "Temps de réponse passé de 4h à 5 secondes. Nos clients sont bluffés par la rapidité et la pertinence des réponses.",
+    metric: "Réponse en 5s",
     imageSrc: 'https://i.pravatar.cc/150?u=4',
     name: 'Amélie D.',
     username: '@amelie_tech',
     role: 'Responsable Opérations',
   },
   {
-    text: "Régler mes problèmes de scalabilité sans recruter était mon défi. Kamtech l'a résolu en 7 jours avec une automatisation parfaite.",
+    text: "Kamtech a divisé nos coûts de support par 2 tout en augmentant la satisfaction client. Un investissement rentabilisé en 10 jours.",
+    metric: "-50% coûts support",
     imageSrc: 'https://i.pravatar.cc/150?u=5',
     name: 'Thomas R.',
     username: '@tom_startup',
     role: 'Fondateur SaaS',
-  },
-  {
-    text: "Le dashboard analytics nous permet de voir exactement le ROI de chaque conversation. C'est l'outil le plus rentable de l'année.",
-    imageSrc: 'https://i.pravatar.cc/150?u=6',
-    name: 'Karine M.',
-    username: '@karine_growth',
-    role: 'Directrice Marketing',
   },
 ];
 
 interface TestimonialProps {
   testimonials?: {
     text: string;
+    metric?: string;
     imageSrc: string;
     name: string;
     username: string;
@@ -114,11 +113,11 @@ export default function TestimonialsCarousel({
           className="relative mb-12 text-center md:mb-16"
         >
           <div className="mb-4 sm:mb-6 inline-block px-3 sm:px-4 py-2 bg-blue-500/10 border border-blue-500/30 rounded-full">
-            <p className="text-blue-400 text-xs sm:text-sm font-semibold uppercase tracking-wider">Témoignages</p>
+            <p className="text-blue-400 text-xs sm:text-sm font-semibold uppercase tracking-wider">Ils ont franchi le pas</p>
           </div>
           
           <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-6" style={{ fontFamily: "var(--font-playfair)" }}>
-            {title}
+            Des résultats <span className="text-blue-500">mesurables</span>
           </h2>
 
           <motion.p
@@ -128,9 +127,52 @@ export default function TestimonialsCarousel({
             transition={{ duration: 0.5, delay: 0.3 }}
             viewport={{ once: true }}
           >
-            {subtitle}
+            Ne nous croyez pas sur parole. Regardez les chiffres.
           </motion.p>
         </motion.div>
+
+        {/* Case Study Highlight */}
+        <div className="max-w-4xl mx-auto mb-16">
+          <motion.div
+            initial={{ opacity: 0, scale: 0.95 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            viewport={{ once: true }}
+            className="bg-gradient-to-br from-blue-900/40 to-black border border-blue-500/30 rounded-2xl p-6 sm:p-8 flex flex-col md:flex-row items-center gap-8 shadow-[0_0_40px_rgba(37,99,235,0.15)]"
+          >
+            <div className="flex-1 space-y-4">
+              <div className="inline-block px-3 py-1 bg-green-500/20 text-green-400 rounded-full text-xs font-bold uppercase tracking-wide">
+                Étude de Cas : Agence Immobilière
+              </div>
+              <h3 className="text-2xl font-bold text-white">Comment ils ont sauvé 60 heures par mois</h3>
+              <p className="text-gray-400 text-sm sm:text-base">
+                "Avant KAMTECH, nos agents passaient leurs soirées à répondre aux mêmes questions sur les biens (prix, surface, dispo). Maintenant, le Chatbot qualifie, envoie la brochure, et prend le RDV pour les visites."
+              </p>
+              <div className="pt-4 flex items-center gap-4">
+                <Avatar className="h-12 w-12 border-2 border-blue-500/50">
+                  <AvatarImage src="https://i.pravatar.cc/150?u=9" />
+                  <AvatarFallback>LD</AvatarFallback>
+                </Avatar>
+                <div>
+                  <p className="text-white font-bold">Laurent D.</p>
+                  <p className="text-blue-400 text-sm">Directeur d'Agence</p>
+                </div>
+              </div>
+            </div>
+
+            <div className="grid grid-cols-2 gap-4 w-full md:w-auto shrink-0">
+              <div className="bg-black/50 border border-gray-800 rounded-xl p-4 text-center">
+                <Clock className="w-6 h-6 text-blue-400 mx-auto mb-2" />
+                <p className="text-2xl font-black text-white">-60h</p>
+                <p className="text-xs text-gray-400">Temps gagné / mois</p>
+              </div>
+              <div className="bg-black/50 border border-gray-800 rounded-xl p-4 text-center">
+                <TrendingUp className="w-6 h-6 text-green-400 mx-auto mb-2" />
+                <p className="text-2xl font-black text-white">+42%</p>
+                <p className="text-xs text-gray-400">De RDV visites</p>
+              </div>
+            </div>
+          </motion.div>
+        </div>
 
         {/* Testimonials carousel */}
         <div className="overflow-hidden" ref={emblaRef}>
@@ -147,15 +189,14 @@ export default function TestimonialsCarousel({
                   viewport={{ once: true }}
                   className="border-gray-800 bg-gray-900/50 relative h-full w-full rounded-2xl border p-6 shadow-xl backdrop-blur-md flex flex-col group hover:border-blue-500/30 transition-all duration-300"
                 >
-                  <motion.div
-                    initial={{ opacity: 0, y: -5 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.3, delay: 0.2 + index * 0.05 }}
-                    viewport={{ once: true }}
-                    className="text-blue-400 mb-6"
-                  >
-                    <Quote className="h-8 w-8 -rotate-180 opacity-50" />
-                  </motion.div>
+                  <div className="flex justify-between items-start mb-6">
+                    <Quote className="h-8 w-8 text-blue-500/50 -rotate-180" />
+                    {testimonial.metric && (
+                      <span className="bg-blue-500/20 text-blue-400 text-xs font-bold px-3 py-1 rounded-full border border-blue-500/30">
+                        {testimonial.metric}
+                      </span>
+                    )}
+                  </div>
 
                   <motion.p
                     initial={{ opacity: 0 }}

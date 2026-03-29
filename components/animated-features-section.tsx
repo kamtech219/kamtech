@@ -2,44 +2,44 @@
 import React from 'react';
 import { cn } from '@/lib/utils';
 import { motion } from 'framer-motion';
-import { ArrowRight, Code, FileText, Layers, TrendingUp, Zap, MessageSquare, Bot } from 'lucide-react';
+import { ArrowRight, Code, FileText, Layers, TrendingUp, Zap, MessageSquare, Bot, Check, X } from 'lucide-react';
 
 import { BentoCard } from '@/components/ui/bento-card';
 
 const items = [
   {
     title: 'Chatbot WhatsApp IA 24/7',
-    description: 'Répondez à vos prospects instantanément, même pendant que vous dormez. Ne perdez plus jamais un seul lead.',
+    description: 'Bénéfice : Ne perdez plus jamais un seul lead. Réponse immédiate, même la nuit.',
     icon: <MessageSquare className="size-6" />,
     size: 'large' as const,
   },
   {
     title: 'Qualification Auto',
-    description: 'Triez vos leads automatiquement selon votre budget et vos critères de réussite.',
+    description: 'Bénéfice : Concentrez-vous sur les prospects chauds et évitez les curieux.',
     icon: <Bot className="size-6" />,
     size: 'small' as const,
   },
   {
     title: 'Automatisations n8n',
-    description: 'Connectez WhatsApp à votre CRM, Email et outils de gestion sans aucun effort technique.',
+    description: 'Bénéfice : Zéro double saisie. Tout atterrit direct dans votre CRM/Google Sheets.',
     icon: <Code className="size-6" />,
     size: 'medium' as const,
   },
   {
     title: 'ROI Garanti',
-    description: 'Optimisation hebdomadaire de vos systèmes pour maximiser chaque centime investi.',
+    description: 'Bénéfice : +25% de conversion moyenne constatée dès le 1er mois.',
     icon: <TrendingUp className="size-6" />,
     size: 'medium' as const,
   },
   {
     title: 'Déploiement en 7j',
-    description: 'Passez de l\'idée aux résultats en une semaine montre en main. Pas de délai IT.',
+    description: 'Bénéfice : Résultats immédiats sans aucun effort technique de votre côté.',
     icon: <Zap className="size-6" />,
     size: 'small' as const,
   },
   {
     title: 'Support & Stratégie',
-    description: 'Une équipe d\'experts dédiée à l\'évolution permanente de vos automatisations IA.',
+    description: 'Bénéfice : Un système qui évolue et apprend de vos clients chaque semaine.',
     icon: <Layers className="size-6" />,
     size: 'large' as const,
   },
@@ -72,7 +72,7 @@ export function AnimatedFeaturesSection() {
         </div>
 
         <motion.div
-          className="grid grid-cols-1 gap-6 sm:grid-cols-2 md:grid-cols-6"
+          className="grid grid-cols-1 gap-6 sm:grid-cols-2 md:grid-cols-6 mb-20"
           variants={containerVariants}
           initial="hidden"
           whileInView="visible"
@@ -96,6 +96,51 @@ export function AnimatedFeaturesSection() {
             />
           ))}
         </motion.div>
+
+        {/* Comparison Table */}
+        <div className="max-w-4xl mx-auto">
+          <div className="text-center mb-8">
+            <h3 className="text-2xl sm:text-3xl font-bold text-white">Pourquoi KAMTECH IA fait la différence</h3>
+          </div>
+
+          <div className="bg-gray-900/50 border border-gray-800 rounded-2xl overflow-hidden backdrop-blur-sm">
+            <div className="grid grid-cols-3 border-b border-gray-800 bg-black/50 p-4 sm:p-6">
+              <div className="col-span-1 text-gray-400 font-semibold text-sm sm:text-base">Fonctionnalité</div>
+              <div className="col-span-1 text-center text-gray-400 font-semibold text-sm sm:text-base">Humain / Manuel</div>
+              <div className="col-span-1 text-center text-blue-400 font-bold text-sm sm:text-base">KAMTECH IA</div>
+            </div>
+
+            <div className="grid grid-cols-3 border-b border-gray-800/50 p-4 sm:p-6 hover:bg-gray-800/30 transition-colors">
+              <div className="col-span-1 text-white text-sm sm:text-base">Disponibilité</div>
+              <div className="col-span-1 flex justify-center items-center text-gray-400 text-sm">9h - 18h, Lundi au Vendredi</div>
+              <div className="col-span-1 flex justify-center items-center text-white font-semibold text-sm"><span className="text-green-400 mr-2">✓</span> 24/7/365</div>
+            </div>
+
+            <div className="grid grid-cols-3 border-b border-gray-800/50 p-4 sm:p-6 hover:bg-gray-800/30 transition-colors">
+              <div className="col-span-1 text-white text-sm sm:text-base">Temps de réponse</div>
+              <div className="col-span-1 flex justify-center items-center text-gray-400 text-sm">Minutes / Heures</div>
+              <div className="col-span-1 flex justify-center items-center text-white font-semibold text-sm"><span className="text-green-400 mr-2">✓</span> Instantané (3s)</div>
+            </div>
+
+            <div className="grid grid-cols-3 border-b border-gray-800/50 p-4 sm:p-6 hover:bg-gray-800/30 transition-colors">
+              <div className="col-span-1 text-white text-sm sm:text-base">Capacité simultanée</div>
+              <div className="col-span-1 flex justify-center items-center text-gray-400 text-sm">1 à 3 conv. à la fois</div>
+              <div className="col-span-1 flex justify-center items-center text-white font-semibold text-sm"><span className="text-green-400 mr-2">✓</span> Illimitée</div>
+            </div>
+
+            <div className="grid grid-cols-3 border-b border-gray-800/50 p-4 sm:p-6 hover:bg-gray-800/30 transition-colors">
+              <div className="col-span-1 text-white text-sm sm:text-base">Erreurs & Oublis</div>
+              <div className="col-span-1 flex justify-center items-center text-red-400 text-sm"><X className="w-4 h-4 mr-1" /> Fréquent</div>
+              <div className="col-span-1 flex justify-center items-center text-white font-semibold text-sm"><span className="text-green-400 mr-2">✓</span> Zéro oubli</div>
+            </div>
+
+            <div className="grid grid-cols-3 p-4 sm:p-6 hover:bg-gray-800/30 transition-colors">
+              <div className="col-span-1 text-white text-sm sm:text-base">Coût mensuel</div>
+              <div className="col-span-1 flex justify-center items-center text-gray-400 text-sm">Salaire temps plein</div>
+              <div className="col-span-1 flex justify-center items-center text-blue-400 font-bold text-sm">À partir de 97€</div>
+            </div>
+          </div>
+        </div>
       </div>
     </section>
   );
