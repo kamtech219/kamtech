@@ -1,5 +1,6 @@
 import type React from "react"
 import type { Metadata } from "next"
+import Script from "next/script"
 import "./globals.css"
 import ClientLayout from "./ClientLayout"
 
@@ -33,6 +34,12 @@ export default function RootLayout({
 
   return (
     <ClientLayout>
+      <Script
+        defer
+        src="https://umami.kamtech.online/script.js"
+        data-website-id="ffe15763-97ed-4db8-88e3-7f3923a42ce2"
+        strategy="afterInteractive"
+      />
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
