@@ -3,58 +3,12 @@
 import { useState } from "react"
 import { motion } from "framer-motion"
 import { Button } from "./ui/button"
-import { Check, ArrowRight, Calculator, ShieldCheck } from "lucide-react"
-import { openWhatsAppChat } from "@/lib/whatsapp"
-
-const pricingPlans = [
-  {
-    name: "Starter IA",
-    price: "497€",
-    period: "/mois",
-    description: "Pour les indépendants qui veulent récupérer leur temps",
-    features: ["Chatbot WhatsApp IA basique", "Qualification des prospects", "Prise de RDV Calendly", "Support email", "Déploiement en 7j"],
-    popular: false,
-  },
-  {
-    name: "Croissance IA",
-    price: "997€",
-    period: "/mois",
-    description: "Pour les entreprises prêtes à scaler fort",
-    features: [
-      "Chatbot WhatsApp IA avancé",
-      "Connexion CRM (HubSpot, Pipedrive...)",
-      "Qualification ultra-précise",
-      "Relances automatiques n8n",
-      "Support prioritaire WhatsApp",
-      "Optimisation mensuelle",
-    ],
-    popular: true,
-  },
-  {
-    name: "Enterprise",
-    price: "Sur devis",
-    period: "",
-    description: "Automatisations sur-mesure complexes",
-    features: [
-      "Système n8n complet (Email, WhatsApp, SMS)",
-      "Dashboard Analytics dédié",
-      "Intégrations API personnalisées",
-      "Support 24/7 dédié",
-      "Formation de votre équipe",
-      "Agent IA Voice (Téléphone)",
-    ],
-    popular: false,
-  },
-]
+import { Calculator, ShieldCheck } from "lucide-react"
 
 export function PricingSection() {
   const [hoursSaved, setHoursSaved] = useState(20)
   const hourlyRate = 35 // Estimation du taux horaire moyen (ex: 35€/h)
   const monthlySavings = hoursSaved * hourlyRate * 4
-
-  const handleExpertClick = () => {
-    openWhatsAppChat("parlerExpert")
-  }
 
   return (
     <section id="pricing" className="py-20 px-4 bg-black relative overflow-hidden">
@@ -156,81 +110,6 @@ export function PricingSection() {
           </motion.div>
         </div>
 
-        {/* Pricing Cards */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto mb-16">
-          {pricingPlans.map((plan, index) => (
-            <motion.div
-              key={plan.name}
-              className={`relative bg-card border rounded-2xl p-8 flex flex-col h-full ${
-                plan.popular ? "border-blue-500/50 bg-blue-900/10 shadow-[0_0_30px_rgba(37,99,235,0.15)]" : "border-gray-800 bg-gray-900/30"
-              }`}
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: index * 0.1 }}
-              viewport={{ once: true }}
-              whileHover={{ y: -5 }}
-            >
-              {plan.popular && (
-                <div className="absolute -top-4 left-1/2 transform -translate-x-1/2">
-                  <span className="bg-blue-500 text-white px-4 py-1 rounded-full text-xs font-bold uppercase tracking-wide shadow-lg">Le plus choisi</span>
-                </div>
-              )}
-
-              <div className="text-center mb-8">
-                <h3 className="text-2xl font-bold text-white mb-2">{plan.name}</h3>
-                <div className="mb-4">
-                  <span className="text-4xl font-black text-white">{plan.price}</span>
-                  <span className="text-gray-400 font-medium">{plan.period}</span>
-                </div>
-                <p className="text-gray-400 text-sm h-10">{plan.description}</p>
-              </div>
-
-              <ul className="space-y-4 mb-8 flex-1">
-                {plan.features.map((feature, featureIndex) => (
-                  <li key={featureIndex} className="flex items-start text-gray-300 text-sm">
-                    <Check className="h-5 w-5 text-blue-500 mr-3 flex-shrink-0" />
-                    <span className="leading-tight">{feature}</span>
-                  </li>
-                ))}
-              </ul>
-
-              <div className="mt-auto">
-                <Button
-                  onClick={plan.name === "Enterprise" ? handleExpertClick : undefined}
-                  data-cal-namespace={plan.name !== "Enterprise" ? "15min" : undefined}
-                  data-cal-link={plan.name !== "Enterprise" ? "kamtech/15min" : undefined}
-                  className={`w-full h-12 rounded-full font-bold text-base ${
-                    plan.popular
-                      ? "bg-blue-600 hover:bg-blue-500 text-white shadow-[0_0_15px_rgba(37,99,235,0.4)]"
-                      : "bg-transparent border border-gray-600 text-white hover:bg-gray-800"
-                  } group`}
-                >
-                  {plan.name === "Enterprise" ? "Contacter l'équipe" : "Réserver mon audit"}
-                  <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
-                </Button>
-              </div>
-            </motion.div>
-          ))}
-        </div>
-
-        {/* Guarantee Banner */}
-        <motion.div
-          className="max-w-4xl mx-auto bg-green-950/20 border border-green-500/30 rounded-2xl p-6 flex flex-col sm:flex-row items-center justify-center gap-6 text-center sm:text-left"
-          initial={{ opacity: 0, scale: 0.95 }}
-          whileInView={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 0.6, delay: 0.4 }}
-          viewport={{ once: true }}
-        >
-          <div className="w-16 h-16 bg-green-500/10 rounded-full flex items-center justify-center shrink-0">
-            <ShieldCheck className="w-8 h-8 text-green-500" />
-          </div>
-          <div>
-            <h4 className="text-xl font-bold text-white mb-2">Garantie 30 Jours "Rentable ou Remboursé"</h4>
-            <p className="text-gray-400 text-sm">
-              Si notre système ne vous fait pas gagner de temps ou ne génère pas de nouveaux leads qualifiés dans les 30 premiers jours, nous vous remboursons intégralement. Aucun risque pour vous.
-            </p>
-          </div>
-        </motion.div>
       </div>
     </section>
   )
