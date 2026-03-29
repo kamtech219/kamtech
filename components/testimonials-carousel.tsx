@@ -239,6 +239,22 @@ export default function TestimonialsCarousel({
             ))}
           </div>
         </div>
+
+        <motion.div
+          className="mt-12 sm:mt-16 flex justify-center"
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+        >
+          <button
+            data-cal-namespace="15min"
+            data-cal-link="kamtech/15min"
+            data-cal-config='{"layout":"month_view","useSlotsViewOnSmallScreen":"true"}'
+            className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-3 rounded-xl text-base font-semibold transition-all shadow-lg hover:shadow-blue-500/25 flex items-center gap-2 group"
+          >
+            Obtenir mon audit gratuit
+          </button>
+        </motion.div>
       </div>
     </section>
   );

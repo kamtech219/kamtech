@@ -50,7 +50,7 @@ export function AnimatedCTASection() {
           style={{ animationDelay: "0.3s" }}
         >
           <div className="mb-4 sm:mb-6 inline-block px-3 sm:px-4 py-2 bg-red-500/10 border border-red-500/20 rounded-full">
-            <p className="text-red-400 text-xs sm:text-sm font-semibold">⏰ Places limitées : Audit stratégique offert cette semaine</p>
+            <p className="text-red-400 text-xs sm:text-sm font-semibold">⏰ Places limitées : Audit gratuit - 15 minutes</p>
           </div>
 
           <h2
@@ -85,7 +85,7 @@ export function AnimatedCTASection() {
                   size="lg" 
                   className="bg-blue-600 hover:bg-blue-700 text-white group font-semibold text-sm sm:text-base w-full sm:w-auto px-10"
                 >
-                  Réserver mon audit gratuit
+                  Obtenir mon audit gratuit
                   <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
                 </Button>
                 <Button 

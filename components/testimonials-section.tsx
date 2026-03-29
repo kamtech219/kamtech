@@ -144,7 +144,7 @@ export function TestimonialsSection() {
           <p className="text-sm sm:text-base text-gray-300 mb-6 px-2">
             Votre secteur est différent ? Pas de problème. KAMTECH IA s&apos;adapte à tous les secteurs. Parlons de votre situation.
           </p>
-          <p className="text-green-400 font-semibold text-sm sm:text-base px-2">Audit gratuit → 30 jours → Résultats mesurables ou remboursé.</p>
+          <p className="text-green-400 font-semibold text-sm sm:text-base px-2">Obtenir mon audit gratuit → 30 jours → Résultats mesurables ou remboursé.</p>
         </motion.div>
       </div>
     </section>

@@ -148,6 +148,14 @@ export function ProblemSection() {
           <p className="text-white/80 text-lg sm:text-xl font-medium max-w-xl">
             Passez du chaos manuel à une machine bien huilée. Découvrez comment nous transformons votre WhatsApp.
           </p>
+          <button
+            data-cal-namespace="15min"
+            data-cal-link="kamtech/15min"
+            data-cal-config='{"layout":"month_view","useSlotsViewOnSmallScreen":"true"}'
+            className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-3 rounded-xl text-base font-semibold transition-all shadow-lg hover:shadow-blue-500/25"
+          >
+            Obtenir mon audit gratuit
+          </button>
         </motion.div>
       </div>
     </section>

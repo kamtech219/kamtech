@@ -82,7 +82,7 @@ export function Header() {
               size="sm"
               className="bg-blue-600 hover:bg-blue-700 text-white rounded-xl text-xs sm:text-sm font-semibold h-9 px-4 sm:px-6"
             >
-              Audit gratuit
+              Obtenir mon audit gratuit
             </Button>
 
             <button
@@ -124,7 +124,7 @@ export function Header() {
                     className="bg-blue-600 hover:bg-blue-700 text-white rounded-xl w-full"
                     onClick={() => setIsMobileMenuOpen(false)}
                   >
-                    Réserver un audit
+                    Obtenir mon audit gratuit
                   </Button>
                   <Button
                     variant="outline"

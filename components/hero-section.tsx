@@ -36,7 +36,7 @@ export function HeroSection() {
       <div className="container mx-auto text-center relative z-10 pb-8">
         <div className="max-w-4xl mx-auto">
           <div className="mb-6 inline-block px-3 sm:px-4 py-2 bg-blue-500/10 border rounded-full border-blue-500/30 backdrop-blur-md">
-            <p className="text-xs sm:text-sm font-semibold text-blue-400">Audit offert avec essai de 7 jours</p>
+            <p className="text-xs sm:text-sm font-semibold text-blue-400">Audit gratuit - 15 minutes</p>
           </div>
 
           <div className="h-[120px] sm:h-[100px] mb-6 flex items-center justify-center">

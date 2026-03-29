@@ -222,7 +222,7 @@ export default function BlogPostPage() {
             href="/#contact" 
             className="inline-flex items-center px-8 py-4 bg-white text-black font-bold rounded-full hover:bg-blue-500 hover:text-white transition-all group"
           >
-            Démarrer un audit gratuit
+            Recevoir mon plan personnalisé
             <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
           </Link>
         </div>
