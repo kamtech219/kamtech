@@ -4,6 +4,7 @@ import "./globals.css"
 import ClientLayout from "./ClientLayout"
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://kamtech.ai"),
   title: "KAMTECH IA | Automatisation WhatsApp & Chatbot IA pour PME",
   description: "Augmentez vos conversions de 30-60% avec un chatbot WhatsApp IA. Déploiement en 7 jours. Garantie 30 jours. Obtenir mon audit gratuit.",
   generator: "v0.app",
@@ -21,5 +22,22 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode
 }>) {
-  return <ClientLayout>{children}</ClientLayout>
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    name: "KAMTECH IA",
+    url: "https://kamtech.ai",
+    logo: "https://kamtech.ai/icon.svg",
+    description: "Automatisation WhatsApp & Chatbot IA pour PME",
+  }
+
+  return (
+    <ClientLayout>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
+      {children}
+    </ClientLayout>
+  )
 }

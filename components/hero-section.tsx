@@ -165,8 +165,11 @@ export function HeroSection() {
           </div>
 
           <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6 text-balance leading-tight">
-            {headlineVariant ? headlines[headlineVariant] : headlines["A"]}
+            Automatisation WhatsApp & Chatbot IA pour booster les PME
           </h1>
+          <p className="text-xl sm:text-2xl font-semibold text-gray-200 mb-6 text-balance">
+            Pendant que vous dormez, vos clients demandent votre prix.
+          </p>
           <h2 className="text-base sm:text-lg md:text-xl lg:text-2xl font-semibold text-gray-300 mb-8 text-balance">
             <span className="block mb-3">
               <strong>Le problème :</strong> Vous perdez 20 heures/semaine en tâches répétitives. Vos prospects attendent une réponse pendant 24h. Votre concurrent vous double.
