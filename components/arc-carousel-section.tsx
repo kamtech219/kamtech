@@ -198,11 +198,14 @@ export function ArcCarouselSection() {
               </p>
 
               <motion.button
+                data-cal-namespace="15min"
+                data-cal-link="kamtech/15min"
+                data-cal-config='{"layout":"month_view","useSlotsViewOnSmallScreen":"true"}'
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
                 className="bg-blue-600 hover:bg-blue-500 text-white px-6 sm:px-8 py-2 sm:py-3 rounded-xl text-sm sm:text-base font-semibold transition-all shadow-[0_0_20px_rgba(37,99,235,0.4)] pointer-events-auto"
               >
-                En savoir plus
+                Obtenir mon audit gratuit
               </motion.button>
             </motion.div>
           </div>

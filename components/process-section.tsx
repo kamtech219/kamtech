@@ -9,7 +9,7 @@ export function ProcessSection() {
   const steps = [
     {
       icon: <Search className="size-6" />,
-      title: "Audit gratuit",
+      title: "Obtenir mon audit gratuit",
       description: "Analyse complète de vos opportunités d'automatisation. On identifie où vous perdez le plus de temps.",
       metric: "Jour 1",
       size: 'medium'

@@ -6,6 +6,8 @@ import { Suspense, useEffect, useState } from "react"
 import { getCalApi } from "@calcom/embed-react"
 import { Toaster } from "sonner"
 import Loader from "@/components/ui/loader"
+import { StickyMobileCTA } from "@/components/sticky-mobile-cta"
+import { ExitIntentPopup } from "@/components/exit-intent-popup"
 
 const inter = Inter({
   subsets: ["latin"],
@@ -57,6 +59,8 @@ function ClientLayoutContent({
         ) : (
           <>
             {children}
+            <StickyMobileCTA />
+            <ExitIntentPopup />
             <Toaster richColors position="top-right" />
           </>
         )}
