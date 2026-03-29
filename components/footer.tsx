@@ -13,7 +13,7 @@ export function Footer() {
   return (
     <footer className="bg-black border-t border-white/10 py-12 px-4">
       <div className="container mx-auto">
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-6 sm:gap-8">
           <div className="sm:col-span-1 lg:col-span-2">
             <div className="text-2xl font-bold text-white mb-4">KAMTECH IA</div>
             <p className="text-white/70 mb-4 max-w-md text-sm sm:text-base">
@@ -49,6 +49,27 @@ export function Footer() {
               <li>
                 <a href="#features" className="hover:text-white transition-colors inline-block">
                   Consulting
+                </a>
+              </li>
+            </ul>
+          </div>
+
+          <div>
+            <h3 className="font-semibold text-white mb-4 text-sm sm:text-base">Secteurs</h3>
+            <ul className="space-y-2 text-white/70 text-xs sm:text-sm">
+              <li>
+                <a href="/segments/restaurants" className="hover:text-white transition-colors inline-block">
+                  Restaurants
+                </a>
+              </li>
+              <li>
+                <a href="/segments/ecommerce" className="hover:text-white transition-colors inline-block">
+                  E-commerce
+                </a>
+              </li>
+              <li>
+                <a href="/segments/services" className="hover:text-white transition-colors inline-block">
+                  Services
                 </a>
               </li>
             </ul>

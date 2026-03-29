@@ -5,6 +5,7 @@ import { ProcessSection } from "@/components/process-section"
 import { AnimatedFeaturesSection } from "@/components/animated-features-section"
 import { ArcCarouselSection } from "@/components/arc-carousel-section"
 import TestimonialsCarousel from "@/components/testimonials-carousel"
+import { PricingSection } from "@/components/pricing-section"
 import { FAQSection } from "@/components/faq-section"
 import ContactSection from "@/components/contact-section"
 import { AnimatedCTASection } from "@/components/animated-cta-section"
@@ -23,6 +24,7 @@ export default function HomePage() {
         <AnimatedFeaturesSection />
         <ArcCarouselSection />
         <TestimonialsCarousel />
+        <PricingSection />
         <FAQSection />
         <ContactSection />
         <AnimatedCTASection />
