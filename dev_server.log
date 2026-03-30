@@ -6,9 +6,14 @@
   - Local:        http://localhost:3000
 
  ✓ Starting...
- ✓ Ready in 1748ms
- ○ Compiling / ...
- ✓ Compiled / in 15.7s (2920 modules)
- GET / 200 in 16380ms
- GET / 200 in 74ms
- GET / 200 in 35ms
+ ✓ Ready in 1780ms
+ ○ Compiling /blog/[slug] ...
+ ✓ Compiled /blog/[slug] in 10s (1582 modules)
+ GET /blog/etude-de-cas-pme-logistique-ia 200 in 11388ms
+ GET /blog/etude-de-cas-pme-logistique-ia 200 in 121ms
+ GET /blog/etude-de-cas-pme-logistique-ia 200 in 52ms
+ GET /blog/etude-de-cas-pme-logistique-ia 200 in 44ms
+ GET /blog/etude-de-cas-pme-logistique-ia 200 in 41ms
+ GET /blog/etude-de-cas-pme-logistique-ia 200 in 42ms
+ GET /blog/etude-de-cas-pme-logistique-ia 200 in 45ms
+ GET /blog/etude-de-cas-pme-logistique-ia 200 in 43ms

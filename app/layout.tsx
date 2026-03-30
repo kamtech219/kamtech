@@ -5,7 +5,7 @@ import "./globals.css"
 import ClientLayout from "./ClientLayout"
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://kamtech.ai"),
+  metadataBase: new URL("https://kamtech.online"),
   title: "KAMTECH IA | Automatisation WhatsApp & Chatbot IA pour PME",
   description: "Augmentez vos conversions de 30-60% avec un chatbot WhatsApp IA. Déploiement en 7 jours. Garantie 30 jours. Obtenir mon audit gratuit.",
   generator: "v0.app",
@@ -14,7 +14,7 @@ export const metadata: Metadata = {
     title: "KAMTECH IA | Chatbot WhatsApp & Automatisation IA",
     description: "Transformez vos ventes avec l'IA. +60% conversions, 10-13h gagnées/semaine, déploiement 7 jours. Obtenir mon audit gratuit.",
     type: "website",
-    url: "https://kamtech.ai",
+    url: "https://kamtech.online",
   },
 }
 
@@ -27,8 +27,8 @@ export default function RootLayout({
     "@context": "https://schema.org",
     "@type": "Organization",
     name: "KAMTECH IA",
-    url: "https://kamtech.ai",
-    logo: "https://kamtech.ai/icon.svg",
+    url: "https://kamtech.online",
+    logo: "https://kamtech.online/icon.svg",
     description: "Automatisation WhatsApp & Chatbot IA pour PME",
   }
 
