@@ -149,7 +149,7 @@ export default function TestimonialsCarousel({
               </p>
               <div className="pt-4 flex items-center gap-4">
                 <Avatar className="h-12 w-12 border-2 border-blue-500/50">
-                  <AvatarImage src="https://i.pravatar.cc/150?u=9" />
+                  <AvatarImage src="https://i.pravatar.cc/150?u=9" alt="Laurent D. - Directeur d'Agence" />
                   <AvatarFallback>LD</AvatarFallback>
                 </Avatar>
                 <div>
