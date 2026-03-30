@@ -28,7 +28,7 @@ export default function RootLayout({
     "@type": "Organization",
     name: "KAMTECH IA",
     url: "https://kamtech.online",
-    logo: "https://kamtech.online/icon.svg",
+    logo: "https://kamtech.online/icon.png",
     description: "Automatisation WhatsApp & Chatbot IA pour PME",
   }
 
