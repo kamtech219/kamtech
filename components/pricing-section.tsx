@@ -78,6 +78,7 @@ export function PricingSection() {
                   max="80"
                   step="5"
                   value={hoursSaved}
+                  aria-label="Heures passées à répondre"
                   onChange={(e) => setHoursSaved(Number(e.target.value))}
                   className="w-full h-2 bg-gray-800 rounded-lg appearance-none cursor-pointer accent-blue-500"
                 />

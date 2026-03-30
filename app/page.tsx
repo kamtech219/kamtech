@@ -1,17 +1,17 @@
+import dynamic from "next/dynamic"
 import { Header } from "@/components/header"
 import { HeroSection } from "@/components/hero-section"
 import { ProblemSection } from "@/components/problem-section"
 import { ProcessSection } from "@/components/process-section"
-import { AnimatedFeaturesSection } from "@/components/animated-features-section"
-import { ArcCarouselSection } from "@/components/arc-carousel-section"
-import TestimonialsCarousel from "@/components/testimonials-carousel"
-import { PricingSection } from "@/components/pricing-section"
-import { FAQSection } from "@/components/faq-section"
-import ContactSection from "@/components/contact-section"
-import { AnimatedCTASection } from "@/components/animated-cta-section"
 import { Footer } from "@/components/footer"
-import { FloatingDock } from "@/components/ui/floating-dock"
-import { Home, Zap, Settings, MessageCircle, HelpCircle } from "lucide-react"
+
+const AnimatedFeaturesSection = dynamic(() => import("@/components/animated-features-section").then(mod => mod.AnimatedFeaturesSection), { ssr: false })
+const ArcCarouselSection = dynamic(() => import("@/components/arc-carousel-section").then(mod => mod.ArcCarouselSection), { ssr: false })
+const TestimonialsCarousel = dynamic(() => import("@/components/testimonials-carousel"), { ssr: false })
+const PricingSection = dynamic(() => import("@/components/pricing-section").then(mod => mod.PricingSection), { ssr: false })
+const FAQSection = dynamic(() => import("@/components/faq-section").then(mod => mod.FAQSection), { ssr: false })
+const ContactSection = dynamic(() => import("@/components/contact-section"), { ssr: false })
+const AnimatedCTASection = dynamic(() => import("@/components/animated-cta-section").then(mod => mod.AnimatedCTASection), { ssr: false })
 
 export default function HomePage() {
   return (

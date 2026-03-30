@@ -77,7 +77,7 @@ function ClientLayoutContent({
   }, []);
 
   return (
-    <html lang="fr" className="dark scroll-smooth">
+    <html lang="fr" className="dark scroll-smooth" suppressHydrationWarning>
       <head>
         {/* Critical CSS to prevent FOUC / render-blocking white screen */}
         <style dangerouslySetInnerHTML={{
@@ -106,7 +106,7 @@ function ClientLayoutContent({
           `
         }} />
       </head>
-      <body className={`font-sans ${inter.variable} ${jetbrainsMono.variable} ${playfair.variable} bg-black text-white antialiased`}>
+      <body className={`font-sans ${inter.variable} ${jetbrainsMono.variable} ${playfair.variable} bg-black text-white antialiased`} suppressHydrationWarning>
         {/* The loader overlay. Rendered by React but only visible when showLoader && !isReady */}
         {isMounted && (
           <div
@@ -139,13 +139,13 @@ export default function ClientLayout({
   return (
     <Suspense
       fallback={
-        <html lang="fr" className="dark">
+        <html lang="fr" className="dark" suppressHydrationWarning>
           <head>
             <style dangerouslySetInnerHTML={{
               __html: `body, html { background-color: #000000 !important; }`
             }} />
           </head>
-          <body className={`font-sans ${inter.variable} ${jetbrainsMono.variable} ${playfair.variable} bg-black text-white antialiased`}>
+          <body className={`font-sans ${inter.variable} ${jetbrainsMono.variable} ${playfair.variable} bg-black text-white antialiased`} suppressHydrationWarning>
             {/* Minimal fallback state */}
           </body>
         </html>
