@@ -98,7 +98,7 @@ export function HeroSection() {
               </Button>
             </div>
             
-            <p className="text-gray-500 text-sm font-medium flex items-center gap-2">
+            <p className="text-[#E2E8F0] text-sm font-medium flex items-center gap-2">
               <ShieldCheck className="w-4 h-4 text-green-500" />
               Sans engagement. Aucune carte requise.
             </p>
@@ -112,7 +112,7 @@ export function HeroSection() {
               </div>
               <div className="text-left">
                 <p className="text-white font-bold">Garantie 30 jours</p>
-                <p className="text-gray-400 text-xs">Satisfait ou remboursé</p>
+                <p className="text-[#E2E8F0] text-xs">Satisfait ou remboursé</p>
               </div>
             </div>
             <div className="flex items-center gap-3">
@@ -121,7 +121,7 @@ export function HeroSection() {
               </div>
               <div className="text-left">
                 <p className="text-white font-bold">Déploiement en 72h</p>
-                <p className="text-gray-400 text-xs">Clé en main</p>
+                <p className="text-[#E2E8F0] text-xs">Clé en main</p>
               </div>
             </div>
             <div className="flex items-center gap-3">
@@ -130,7 +130,7 @@ export function HeroSection() {
               </div>
               <div className="text-left">
                 <p className="text-white font-bold">Support 24/7</p>
-                <p className="text-gray-400 text-xs">Équipe dédiée</p>
+                <p className="text-[#E2E8F0] text-xs">Équipe dédiée</p>
               </div>
             </div>
           </div>

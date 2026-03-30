@@ -66,7 +66,7 @@ export function AnimatedFeaturesSection() {
           <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-6" style={{ fontFamily: "var(--font-playfair)" }}>
             Votre infrastructure de croissance <span className="text-blue-500">automatisée</span>
           </h2>
-          <p className="text-base sm:text-lg md:text-xl text-gray-400 max-w-2xl mx-auto">
+          <p className="text-base sm:text-lg md:text-xl text-[#E2E8F0] max-w-2xl mx-auto">
             Nous construisons des systèmes intelligents qui qualifient, engagent et convertissent vos prospects sans intervention humaine.
           </p>
         </div>
@@ -76,7 +76,7 @@ export function AnimatedFeaturesSection() {
           variants={containerVariants}
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true, margin: "-100px" }}
+          viewport={{ once: true, amount: 0.1 }}
         >
           {items.map((item, i) => (
             <BentoCard
@@ -105,26 +105,26 @@ export function AnimatedFeaturesSection() {
 
           <div className="bg-gray-900/50 border border-gray-800 rounded-2xl overflow-hidden backdrop-blur-sm">
             <div className="grid grid-cols-3 border-b border-gray-800 bg-black/50 p-4 sm:p-6">
-              <div className="col-span-1 text-gray-400 font-semibold text-sm sm:text-base">Fonctionnalité</div>
-              <div className="col-span-1 text-center text-gray-400 font-semibold text-sm sm:text-base">Humain / Manuel</div>
+              <div className="col-span-1 text-[#E2E8F0] font-semibold text-sm sm:text-base">Fonctionnalité</div>
+              <div className="col-span-1 text-center text-[#E2E8F0] font-semibold text-sm sm:text-base">Humain / Manuel</div>
               <div className="col-span-1 text-center text-blue-400 font-bold text-sm sm:text-base">KAMTECH IA</div>
             </div>
 
             <div className="grid grid-cols-3 border-b border-gray-800/50 p-4 sm:p-6 hover:bg-gray-800/30 transition-colors">
               <div className="col-span-1 text-white text-sm sm:text-base">Disponibilité</div>
-              <div className="col-span-1 flex justify-center items-center text-gray-400 text-sm">9h - 18h, Lundi au Vendredi</div>
+              <div className="col-span-1 flex justify-center items-center text-[#E2E8F0] text-sm">9h - 18h, Lundi au Vendredi</div>
               <div className="col-span-1 flex justify-center items-center text-white font-semibold text-sm"><span className="text-green-400 mr-2">✓</span> 24/7/365</div>
             </div>
 
             <div className="grid grid-cols-3 border-b border-gray-800/50 p-4 sm:p-6 hover:bg-gray-800/30 transition-colors">
               <div className="col-span-1 text-white text-sm sm:text-base">Temps de réponse</div>
-              <div className="col-span-1 flex justify-center items-center text-gray-400 text-sm">Minutes / Heures</div>
+              <div className="col-span-1 flex justify-center items-center text-[#E2E8F0] text-sm">Minutes / Heures</div>
               <div className="col-span-1 flex justify-center items-center text-white font-semibold text-sm"><span className="text-green-400 mr-2">✓</span> Instantané (3s)</div>
             </div>
 
             <div className="grid grid-cols-3 border-b border-gray-800/50 p-4 sm:p-6 hover:bg-gray-800/30 transition-colors">
               <div className="col-span-1 text-white text-sm sm:text-base">Capacité simultanée</div>
-              <div className="col-span-1 flex justify-center items-center text-gray-400 text-sm">1 à 3 conv. à la fois</div>
+              <div className="col-span-1 flex justify-center items-center text-[#E2E8F0] text-sm">1 à 3 conv. à la fois</div>
               <div className="col-span-1 flex justify-center items-center text-white font-semibold text-sm"><span className="text-green-400 mr-2">✓</span> Illimitée</div>
             </div>
 
@@ -136,7 +136,7 @@ export function AnimatedFeaturesSection() {
 
             <div className="grid grid-cols-3 p-4 sm:p-6 hover:bg-gray-800/30 transition-colors">
               <div className="col-span-1 text-white text-sm sm:text-base">Coût mensuel</div>
-              <div className="col-span-1 flex justify-center items-center text-gray-400 text-sm">Salaire temps plein</div>
+              <div className="col-span-1 flex justify-center items-center text-[#E2E8F0] text-sm">Salaire temps plein</div>
               <div className="col-span-1 flex justify-center items-center text-blue-400 font-bold text-sm">À partir de 97€</div>
             </div>
           </div>

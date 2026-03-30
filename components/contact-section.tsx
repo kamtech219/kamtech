@@ -90,7 +90,7 @@ export default function ContactSection() {
                     Contactez-nous
                   </h2>
                 </div>
-                <p className="text-gray-400 text-lg max-w-md">
+                <p className="text-[#E2E8F0] text-lg max-w-md">
                   Une question ? Un projet ? Notre équipe d'experts IA vous répond sous 24h.
                 </p>
                 

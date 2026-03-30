@@ -75,7 +75,7 @@ export function ExitIntentPopup() {
                 Recevoir mon plan personnalisé
               </button>
 
-              <p className="mt-4 text-sm text-gray-500">
+              <p className="mt-4 text-sm text-[#E2E8F0]">
                 15 minutes. 100% gratuit. Déployable en 7 jours.
               </p>
             </div>

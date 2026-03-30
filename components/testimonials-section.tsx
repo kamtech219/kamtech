@@ -115,7 +115,7 @@ export function TestimonialsSection() {
                 {testimonial.metrics.map((metric, mIndex) => (
                   <div key={mIndex} className="text-center">
                     <p className="text-green-400 font-bold text-sm sm:text-lg">{metric.value}</p>
-                    <p className="text-gray-400 text-xs">{metric.label}</p>
+                    <p className="text-[#E2E8F0] text-xs">{metric.label}</p>
                   </div>
                 ))}
               </div>
@@ -123,9 +123,9 @@ export function TestimonialsSection() {
               {/* Author */}
               <div className="border-t border-gray-800 pt-4">
                 <p className="font-semibold text-white text-sm sm:text-base">{testimonial.name}</p>
-                <p className="text-xs sm:text-sm text-gray-400">{testimonial.role}</p>
+                <p className="text-xs sm:text-sm text-[#E2E8F0]">{testimonial.role}</p>
                 <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between mt-2 gap-2">
-                  <p className="text-xs text-gray-500">{testimonial.company}</p>
+                  <p className="text-xs text-[#E2E8F0]">{testimonial.company}</p>
                   <p className="text-xs bg-blue-600/20 text-blue-400 px-2 py-1 rounded">{testimonial.sector}</p>
                 </div>
               </div>
