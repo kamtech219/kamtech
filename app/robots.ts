@@ -6,6 +6,6 @@ export default function robots(): MetadataRoute.Robots {
       userAgent: "*",
       allow: "/",
     },
-    sitemap: "https://kamtech.ai/sitemap.xml",
+    sitemap: "https://kamtech.online/sitemap.xml",
   };
 }

@@ -135,44 +135,44 @@ export default function BlogPostClient({ slug }: { slug: string }) {
           />
 
           {/* Share Section */}
-          <div className="mt-16 pt-8 border-t border-white/10 flex items-center justify-between">
-            <div className="flex items-center gap-4">
-              <span className="text-sm text-blue-100/40 font-medium tracking-wider uppercase">Partager l'article</span>
-              <div className="flex gap-2">
+          <div className="mt-16 pt-8 border-t border-white/10 flex flex-col sm:flex-row items-center justify-between gap-4">
+            <div className="flex flex-col sm:flex-row items-center gap-4 w-full sm:w-auto">
+              <span className="text-sm text-blue-100/40 font-medium tracking-wider uppercase whitespace-nowrap">Partager l'article</span>
+              <div className="flex flex-wrap justify-center gap-3 sm:gap-2">
                 <button
                   onClick={() => handleShare("twitter")}
                   title="Partager sur X"
-                  className="w-10 h-10 rounded-full bg-white/5 border border-white/10 flex items-center justify-center hover:bg-blue-400/20 hover:border-blue-400/30 transition-all text-blue-400"
+                  className="w-12 h-12 sm:w-10 sm:h-10 rounded-full bg-white/5 border border-white/10 flex items-center justify-center hover:bg-blue-400/20 hover:border-blue-400/30 transition-all text-blue-400"
                 >
-                  <Twitter className="w-4 h-4" />
+                  <Twitter className="w-5 h-5 sm:w-4 sm:h-4" />
                 </button>
                 <button
                   onClick={() => handleShare("linkedin")}
                   title="Partager sur LinkedIn"
-                  className="w-10 h-10 rounded-full bg-white/5 border border-white/10 flex items-center justify-center hover:bg-blue-600/20 hover:border-blue-600/30 transition-all text-blue-600"
+                  className="w-12 h-12 sm:w-10 sm:h-10 rounded-full bg-white/5 border border-white/10 flex items-center justify-center hover:bg-blue-600/20 hover:border-blue-600/30 transition-all text-blue-600"
                 >
-                  <Linkedin className="w-4 h-4" />
+                  <Linkedin className="w-5 h-5 sm:w-4 sm:h-4" />
                 </button>
                 <button
                   onClick={() => handleShare("facebook")}
                   title="Partager sur Facebook"
-                  className="w-10 h-10 rounded-full bg-white/5 border border-white/10 flex items-center justify-center hover:bg-blue-800/20 hover:border-blue-800/30 transition-all text-blue-800"
+                  className="w-12 h-12 sm:w-10 sm:h-10 rounded-full bg-white/5 border border-white/10 flex items-center justify-center hover:bg-blue-800/20 hover:border-blue-800/30 transition-all text-blue-800"
                 >
-                  <Facebook className="w-4 h-4" />
+                  <Facebook className="w-5 h-5 sm:w-4 sm:h-4" />
                 </button>
                 <button
                   onClick={() => handleShare("whatsapp")}
                   title="Partager sur WhatsApp"
-                  className="w-10 h-10 rounded-full bg-white/5 border border-white/10 flex items-center justify-center hover:bg-emerald-500/20 hover:border-emerald-500/30 transition-all text-emerald-500"
+                  className="w-12 h-12 sm:w-10 sm:h-10 rounded-full bg-white/5 border border-white/10 flex items-center justify-center hover:bg-emerald-500/20 hover:border-emerald-500/30 transition-all text-emerald-500"
                 >
-                  <MessageCircle className="w-4 h-4" />
+                  <MessageCircle className="w-5 h-5 sm:w-4 sm:h-4" />
                 </button>
                 <button
                   onClick={() => handleShare("copy")}
                   title="Copier le lien"
-                  className="w-10 h-10 rounded-full bg-white/5 border border-white/10 flex items-center justify-center hover:bg-white/10 hover:border-white/20 transition-all text-white/50"
+                  className="w-12 h-12 sm:w-10 sm:h-10 rounded-full bg-white/5 border border-white/10 flex items-center justify-center hover:bg-white/10 hover:border-white/20 transition-all text-white/50"
                 >
-                  <Link2 className="w-4 h-4" />
+                  <Link2 className="w-5 h-5 sm:w-4 sm:h-4" />
                 </button>
               </div>
             </div>
