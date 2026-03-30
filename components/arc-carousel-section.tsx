@@ -121,13 +121,12 @@ function MovingLogo({ logo, index, total, radius }: { logo: any, index: number, 
 
   return (
     <motion.div
-      className="absolute"
+      className="absolute left-1/2"
       style={{
         x,
         y,
         opacity,
         scale,
-        left: "50%",
         top: radius < 200 ? "45%" : "62%", // Center point of the arch adjusted for mobile
       }}
       whileHover={{ scale: 1.15, zIndex: 50 }}

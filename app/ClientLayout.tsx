@@ -8,6 +8,7 @@ import { Toaster } from "sonner"
 import Loader from "@/components/ui/loader"
 import { StickyMobileCTA } from "@/components/sticky-mobile-cta"
 import { ExitIntentPopup } from "@/components/exit-intent-popup"
+import { NoSSRWrapper } from "@/components/no-ssr-wrapper"
 
 const inter = Inter({
   subsets: ["latin"],
@@ -108,7 +109,7 @@ function ClientLayoutContent({
       </head>
       <body className={`font-sans ${inter.variable} ${jetbrainsMono.variable} ${playfair.variable} bg-black text-white antialiased`} suppressHydrationWarning>
         {/* The loader overlay. Rendered by React but only visible when showLoader && !isReady */}
-        {isMounted && (
+        <NoSSRWrapper>
           <div
             id="loader-kamtech"
             className={(!showLoader || isReady) ? "loader-hidden" : ""}
@@ -116,14 +117,16 @@ function ClientLayoutContent({
           >
             {showLoader && !isReady && <Loader />}
           </div>
-        )}
+        </NoSSRWrapper>
 
         {/* We ALWAYS render children in place so SSR produces the actual HTML structure immediately.
             The loader just sits on top if the page hasn't finished loading after 500ms. */}
         <div>
           {children}
-          <StickyMobileCTA />
-          <ExitIntentPopup />
+          <NoSSRWrapper>
+            <StickyMobileCTA />
+            <ExitIntentPopup />
+          </NoSSRWrapper>
           <Toaster richColors position="top-right" />
         </div>
       </body>

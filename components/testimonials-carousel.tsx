@@ -144,7 +144,7 @@ export default function TestimonialsCarousel({
                 Étude de Cas : Agence Immobilière
               </div>
               <h3 className="text-2xl font-bold text-white">Comment ils ont sauvé 60 heures par mois</h3>
-              <p className="text-gray-400 text-sm sm:text-base">
+              <p className="text-[#E2E8F0] text-sm sm:text-base">
                 "Avant KAMTECH, nos agents passaient leurs soirées à répondre aux mêmes questions sur les biens (prix, surface, dispo). Maintenant, le Chatbot qualifie, envoie la brochure, et prend le RDV pour les visites."
               </p>
               <div className="pt-4 flex items-center gap-4">
@@ -163,12 +163,12 @@ export default function TestimonialsCarousel({
               <div className="bg-black/50 border border-gray-800 rounded-xl p-4 text-center">
                 <Clock className="w-6 h-6 text-blue-400 mx-auto mb-2" />
                 <p className="text-2xl font-black text-white">-60h</p>
-                <p className="text-xs text-gray-400">Temps gagné / mois</p>
+                <p className="text-xs text-[#E2E8F0]">Temps gagné / mois</p>
               </div>
               <div className="bg-black/50 border border-gray-800 rounded-xl p-4 text-center">
                 <TrendingUp className="w-6 h-6 text-green-400 mx-auto mb-2" />
                 <p className="text-2xl font-black text-white">+42%</p>
-                <p className="text-xs text-gray-400">De RDV visites</p>
+                <p className="text-xs text-[#E2E8F0]">De RDV visites</p>
               </div>
             </div>
           </motion.div>

@@ -108,7 +108,7 @@ export function FAQSection() {
               >
                 <span className="text-sm sm:text-base md:text-lg font-medium text-white">{faq.question}</span>
                 <ChevronDown
-                  className={`h-5 w-5 text-gray-400 transition-transform flex-shrink-0 mt-1 sm:mt-0 ${
+                  className={`h-5 w-5 text-[#E2E8F0] transition-transform flex-shrink-0 mt-1 sm:mt-0 ${
                     openIndex === index ? "rotate-180" : ""
                   }`}
                 />

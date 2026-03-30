@@ -21,8 +21,6 @@ const AnimatedGradient: React.FC<AnimatedGradientProps> = ({ colors, speed = 5, 
 
   const randomValues = useMemo(() => {
     return colors.map(() => ({
-      top: Math.random() * 50,
-      left: Math.random() * 50,
       tx1: Math.random() - 0.5,
       ty1: Math.random() - 0.5,
       tx2: Math.random() - 0.5,
@@ -58,8 +56,7 @@ const AnimatedGradient: React.FC<AnimatedGradientProps> = ({ colors, speed = 5, 
               className="absolute animate-background-gradient"
               style={
                 {
-                  top: `${randomValue.top}%`,
-                  left: `${randomValue.left}%`,
+                  transform: `translate(${randomValue.tx1 * 100}%, ${randomValue.ty1 * 100}%)`,
                   "--background-gradient-speed": `${1 / speed}s`,
                   "--tx-1": randomValue.tx1,
                   "--ty-1": randomValue.ty1,

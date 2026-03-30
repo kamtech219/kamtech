@@ -35,7 +35,7 @@ export function ProblemSection() {
           <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-6" style={{ fontFamily: "var(--font-playfair)" }}>
             Chaque minute d'attente vous <span className="text-red-500">coûte cher</span>
           </h2>
-          <p className="text-base sm:text-lg md:text-xl text-gray-400 max-w-2xl mx-auto">
+          <p className="text-base sm:text-lg md:text-xl text-[#E2E8F0] max-w-2xl mx-auto">
             Sans un système automatisé, votre croissance est limitée par le temps humain. Vos concurrents, eux, ne dorment pas.
           </p>
         </div>
@@ -62,7 +62,7 @@ export function ProblemSection() {
                 </div>
                 <div>
                   <p className="text-white font-semibold mb-1">20h perdues par semaine</p>
-                  <p className="text-gray-400 text-sm">Copier-coller les mêmes réponses aux mêmes questions de prospects.</p>
+                  <p className="text-[#E2E8F0] text-sm">Copier-coller les mêmes réponses aux mêmes questions de prospects.</p>
                 </div>
               </li>
               <li className="flex items-start gap-4">
@@ -71,7 +71,7 @@ export function ProblemSection() {
                 </div>
                 <div>
                   <p className="text-white font-semibold mb-1">Réponses lentes (24h+)</p>
-                  <p className="text-gray-400 text-sm">Le prospect s'impatiente et part chez un concurrent plus réactif.</p>
+                  <p className="text-[#E2E8F0] text-sm">Le prospect s'impatiente et part chez un concurrent plus réactif.</p>
                 </div>
               </li>
               <li className="flex items-start gap-4">
@@ -80,7 +80,7 @@ export function ProblemSection() {
                 </div>
                 <div>
                   <p className="text-white font-semibold mb-1">Croissance plafonnée</p>
-                  <p className="text-gray-400 text-sm">Impossible de scaler sans recruter massivement et augmenter les coûts.</p>
+                  <p className="text-[#E2E8F0] text-sm">Impossible de scaler sans recruter massivement et augmenter les coûts.</p>
                 </div>
               </li>
             </ul>
@@ -106,7 +106,7 @@ export function ProblemSection() {
                 </div>
                 <div>
                   <p className="text-white font-semibold mb-1">Automatisation à 100%</p>
-                  <p className="text-gray-400 text-sm">L'IA gère la qualification et la prise de RDV. Vous récupérez vos soirées.</p>
+                  <p className="text-[#E2E8F0] text-sm">L'IA gère la qualification et la prise de RDV. Vous récupérez vos soirées.</p>
                 </div>
               </li>
               <li className="flex items-start gap-4">
@@ -115,7 +115,7 @@ export function ProblemSection() {
                 </div>
                 <div>
                   <p className="text-white font-semibold mb-1">Réponse en 5 secondes</p>
-                  <p className="text-gray-400 text-sm">Conversion maximisée. Vos prospects sont pris en charge instantanément 24/7.</p>
+                  <p className="text-[#E2E8F0] text-sm">Conversion maximisée. Vos prospects sont pris en charge instantanément 24/7.</p>
                 </div>
               </li>
               <li className="flex items-start gap-4">
@@ -124,7 +124,7 @@ export function ProblemSection() {
                 </div>
                 <div>
                   <p className="text-white font-semibold mb-1">Scalabilité infinie</p>
-                  <p className="text-gray-400 text-sm">Gérez 10 ou 10 000 leads avec la même fluidité sans embaucher.</p>
+                  <p className="text-[#E2E8F0] text-sm">Gérez 10 ou 10 000 leads avec la même fluidité sans embaucher.</p>
                 </div>
               </li>
             </ul>
