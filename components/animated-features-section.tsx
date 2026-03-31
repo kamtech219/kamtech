@@ -2,7 +2,7 @@
 import React from 'react';
 import { cn } from '@/lib/utils';
 import { motion } from 'framer-motion';
-import { ArrowRight, Code, FileText, Layers, TrendingUp, Zap, MessageSquare, Bot, Check, X } from 'lucide-react';
+import { Code, Layers, TrendingUp, Zap, MessageSquare, Bot, X } from 'lucide-react';
 
 import { BentoCard } from '@/components/ui/bento-card';
 
