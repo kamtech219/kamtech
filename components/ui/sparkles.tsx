@@ -3,6 +3,15 @@ import React, { useId, useEffect, useState } from "react";
 import { useMousePosition } from "../hooks/use-mouse-position";
 import { motion } from "framer-motion";
 
+interface Particle {
+  x: number;
+  y: number;
+  size: number;
+  speedX: number;
+  speedY: number;
+  opacity: number;
+}
+
 export const SparklesCore = (props: {
   id?: string;
   className?: string;
@@ -25,7 +34,7 @@ export const SparklesCore = (props: {
   } = props;
   const canvasRef = React.useRef<HTMLCanvasElement>(null);
   const mousePosition = useMousePosition();
-  const particles = React.useRef<any[]>([]);
+  const particles = React.useRef<Particle[]>([]);
   const idToUse = id || useId();
 
   useEffect(() => {

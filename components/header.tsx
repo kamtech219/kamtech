@@ -5,7 +5,7 @@ import { LeLoLogo } from "./lelo-logo"
 import { Button } from "./ui/button"
 import { openWhatsAppChat } from "@/lib/whatsapp"
 import { Menu, X } from "lucide-react"
-import { motion, AnimatePresence, useMotionValue, useSpring, useTransform } from "framer-motion"
+import { motion, AnimatePresence, useMotionValue, useSpring, useTransform, MotionValue } from "framer-motion"
 import { useRef } from "react"
 
 export function Header() {
@@ -167,7 +167,7 @@ function NavIcon({
   title,
   href,
 }: {
-  mouseX: any
+  mouseX: MotionValue<number>
   title: string
   href: string
 }) {

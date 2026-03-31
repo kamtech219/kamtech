@@ -4,7 +4,12 @@ import Image from "next/image"
 import { motion, useTime, useTransform } from "framer-motion"
 import { useEffect, useState } from "react"
 
-const logos = [
+interface Logo {
+  name: string
+  src: string
+}
+
+const logos: Logo[] = [
   {
     name: "OpenClaw",
     src: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/openclaw-hms5V0ldc5uOfwg5MrpAiZ4WPIKCTp.webp",
