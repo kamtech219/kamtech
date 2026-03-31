@@ -7,7 +7,7 @@
     "dev": "next dev",
     "lint": "next lint",
     "start": "next start",
-    "test": "node --experimental-strip-types --test lib/whatsapp.test.ts"
+    "test": "node --experimental-strip-types --test lib/whatsapp.test.ts app/robots.test.ts"
   },
   "dependencies": {
     "@calcom/embed-react": "^1.5.3",
