@@ -8,6 +8,7 @@ import {
   useMotionValue,
   useSpring,
   useTransform,
+  type MotionValue,
 } from "framer-motion"
 import Link from "next/link"
 import { useRef, useState } from "react"
@@ -114,7 +115,7 @@ function IconContainer({
   icon,
   href,
 }: {
-  mouseX: any
+  mouseX: MotionValue<number>
   title: string
   icon: React.ReactNode
   href: string

@@ -4,7 +4,7 @@ import { Footer } from "@/components/footer";
 import { AnimatedCTASection } from "@/components/animated-cta-section";
 import TestimonialsCarousel from "@/components/testimonials-carousel";
 import { BentoCard } from "@/components/ui/bento-card";
-import { AlertCircle, Clock, CheckCircle, Zap } from "lucide-react";
+import { AlertCircle, Clock, CheckCircle } from "lucide-react";
 import { seoPagesData } from "@/lib/seo-data";
 
 export async function generateMetadata({ params }: { params: { slug: string } }) {
