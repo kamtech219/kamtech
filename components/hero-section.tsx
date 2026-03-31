@@ -1,6 +1,6 @@
 "use client"
 
-import { useCallback, useMemo } from "react"
+import { useCallback } from "react"
 import { Button } from "./ui/button"
 import { ArrowRight, ShieldCheck, Zap, Clock } from "lucide-react"
 import { ParticleTextEffect } from "./particle-text-effect"
