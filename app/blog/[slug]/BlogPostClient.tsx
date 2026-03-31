@@ -4,7 +4,7 @@ import React from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { motion } from "framer-motion";
-import { Calendar, Clock, ChevronLeft, User, Share2, ArrowRight, Twitter, Linkedin, Link2, Facebook, MessageCircle } from "lucide-react";
+import { Calendar, Clock, ChevronLeft, User, ArrowRight, Twitter, Linkedin, Link2, Facebook, MessageCircle } from "lucide-react";
 import { blogPosts } from "@/lib/blog-data";
 import { Header } from "@/components/header";
 import { toast } from "sonner";
