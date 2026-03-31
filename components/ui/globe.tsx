@@ -3,9 +3,7 @@
 import React, { useEffect, useRef, useState } from "react"
 import * as d3 from "d3"
 import { loadWorldData } from "@/lib/world-data-loader"
-import type { Feature, Geometry, GeoJsonProperties } from "geojson"
-
-type GeoFeature = Feature<Geometry, GeoJsonProperties>
+import type { Feature, Geometry } from "geojson"
 
 export default function Globe({
   className = "",
@@ -15,7 +13,7 @@ export default function Globe({
   autoRotate?: boolean
 }) {
   const svgRef = useRef<SVGSVGElement>(null)
-  const [worldData, setWorldData] = useState<GeoFeature[]>([])
+  const [worldData, setWorldData] = useState<Feature<Geometry, any>[]>([])
   const [rotation, setRotation] = useState([-20, -20])
   const [isHovered, setIsHovered] = useState(false)
 
@@ -36,7 +34,7 @@ export default function Globe({
     const fetchData = async () => {
       try {
         const countries = await loadWorldData()
-        setWorldData(countries as GeoFeature[])
+        setWorldData(countries)
       } catch (error) {
         console.error("Error loading globe data:", error)
       }
