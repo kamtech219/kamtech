@@ -2,10 +2,9 @@
 
 import type React from "react"
 
-import { useEffect, useRef, useState, useMemo } from "react"
+import { useEffect, useRef, useState } from "react"
 import * as d3 from "d3"
-import useSWR from "swr"
-import { fetchWorldData } from "@/lib/world-data-loader"
+import { loadWorldData } from "@/lib/world-data-loader"
 import { Button } from "@/components/ui/button"
 
 interface GeoFeature {
@@ -32,6 +31,7 @@ export function GlobeToMapTransform() {
   const svgRef = useRef<SVGSVGElement>(null)
   const [isAnimating, setIsAnimating] = useState(false)
   const [progress, setProgress] = useState([0])
+  const [worldData, setWorldData] = useState<GeoFeature[]>([])
   const [rotation, setRotation] = useState([0, 0])
   const [translation, setTranslation] = useState([0, 0])
   const [isDragging, setIsDragging] = useState(false)
@@ -41,41 +41,39 @@ export function GlobeToMapTransform() {
   const height = 500
 
   // Load world data
-  const { data: fetchedData, error } = useSWR<GeoFeature[]>(
-    "https://cdn.jsdelivr.net/npm/world-atlas@2/countries-110m.json",
-    fetchWorldData,
-    {
-      revalidateOnFocus: false,
-      revalidateOnReconnect: false,
-    }
-  )
-
-  const worldData = useMemo(() => {
-    if (fetchedData) return fetchedData
-    if (error) {
-      console.log("[v0] Error loading world data:", error)
-      // Fallback: create a simple world outline
-      return [
-        {
-          type: "Feature",
-          geometry: {
-            type: "Polygon",
-            coordinates: [
-              [
-                [-180, -90],
-                [180, -90],
-                [180, 90],
-                [-180, 90],
-                [-180, -90],
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const countries = await loadWorldData()
+        setWorldData(countries)
+        console.log("[v0] Successfully loaded world data with", countries.length, "countries")
+      } catch (error) {
+        console.log("[v0] Error loading world data:", error)
+        // Fallback: create a simple world outline
+        const fallbackData = [
+          {
+            type: "Feature",
+            geometry: {
+              type: "Polygon",
+              coordinates: [
+                [
+                  [-180, -90],
+                  [180, -90],
+                  [180, 90],
+                  [-180, 90],
+                  [-180, -90],
+                ],
               ],
-            ],
+            },
+            properties: {},
           },
-          properties: {},
-        },
-      ]
+        ]
+        setWorldData(fallbackData)
+      }
     }
-    return []
-  }, [fetchedData, error])
+
+    fetchData()
+  }, [])
 
   const handleMouseDown = (event: React.MouseEvent) => {
     setIsDragging(true)

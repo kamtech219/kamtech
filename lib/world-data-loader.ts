@@ -1,7 +1,15 @@
 import { feature } from "topojson-client"
 
-let cachedWorldData: any = null
+// Keep this around for backwards compatibility or SWR fetcher
+export const fetchWorldData = async (url: string) => {
+  const response = await fetch(url)
+  const world: any = await response.json()
+  const countries = (feature(world, world.objects.countries) as any).features
+  return countries
+}
 
+// Deprecate standard load in favor of SWR fetcher, but keep for compatibility if needed elsewhere
+let cachedWorldData: any = null
 export const loadWorldData = async () => {
   if (cachedWorldData) {
     return cachedWorldData
@@ -10,14 +18,11 @@ export const loadWorldData = async () => {
   if (!(globalThis as any).worldDataPromise) {
     ;(globalThis as any).worldDataPromise = (async () => {
       try {
-        const response = await fetch("https://cdn.jsdelivr.net/npm/world-atlas@2/countries-110m.json")
-        const world: any = await response.json()
-        const countries = (feature(world, world.objects.countries) as any).features
+        const countries = await fetchWorldData("https://cdn.jsdelivr.net/npm/world-atlas@2/countries-110m.json")
         cachedWorldData = countries
         return countries
       } catch (error) {
         console.error("Error loading world data:", error)
-        // Reset the promise on error so we can retry later
         ;(globalThis as any).worldDataPromise = null
         throw error
       }

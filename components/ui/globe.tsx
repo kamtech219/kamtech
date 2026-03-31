@@ -2,7 +2,8 @@
 
 import React, { useEffect, useRef, useState } from "react"
 import * as d3 from "d3"
-import { loadWorldData } from "@/lib/world-data-loader"
+import useSWR from "swr"
+import { fetchWorldData } from "@/lib/world-data-loader"
 
 interface GeoFeature {
   type: string
@@ -18,9 +19,21 @@ export default function Globe({
   autoRotate?: boolean
 }) {
   const svgRef = useRef<SVGSVGElement>(null)
-  const [worldData, setWorldData] = useState<GeoFeature[]>([])
   const [rotation, setRotation] = useState([-20, -20])
   const [isHovered, setIsHovered] = useState(false)
+
+  const { data: worldData = [], error } = useSWR<GeoFeature[]>(
+    "https://cdn.jsdelivr.net/npm/world-atlas@2/countries-110m.json",
+    fetchWorldData,
+    {
+      revalidateOnFocus: false,
+      revalidateOnReconnect: false,
+    }
+  )
+
+  if (error) {
+    console.error("Error loading globe data:", error)
+  }
 
   const width = 600
   const height = 600
@@ -34,18 +47,6 @@ export default function Globe({
     { name: "AMÉRIQUES", lat: 10.0, lon: -80.0 },
     { name: "OCÉANIE", lat: -25.0, lon: 135.0 },
   ]
-
-  useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const countries = await loadWorldData()
-        setWorldData(countries as any)
-      } catch (error) {
-        console.error("Error loading globe data:", error)
-      }
-    }
-    fetchData()
-  }, [])
 
   useEffect(() => {
     if (!autoRotate || isHovered) return
