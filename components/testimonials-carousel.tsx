@@ -5,7 +5,7 @@ import useEmblaCarousel from 'embla-carousel-react';
 import { cn } from '@/lib/utils';
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
 import { motion } from 'framer-motion';
-import { Quote, TrendingUp, Clock, Zap } from 'lucide-react';
+import { Quote, TrendingUp, Clock } from 'lucide-react';
 
 const kamtechTestimonials = [
   {
