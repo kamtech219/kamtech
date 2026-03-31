@@ -4,7 +4,12 @@ import Image from "next/image"
 import { motion, useTime, useTransform } from "framer-motion"
 import { useEffect, useState } from "react"
 
-const logos = [
+interface Logo {
+  name: string
+  src: string
+}
+
+const logos: Logo[] = [
   {
     name: "OpenClaw",
     src: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/openclaw-hms5V0ldc5uOfwg5MrpAiZ4WPIKCTp.webp",
@@ -91,7 +96,7 @@ const logos = [
   },
 ]
 
-function MovingLogo({ logo, index, total, radius }: { logo: any, index: number, total: number, radius: number }) {
+function MovingLogo({ logo, index, total, radius }: { logo: Logo, index: number, total: number, radius: number }) {
   const time = useTime()
   
   // Continuous 360 degree rotation logic
