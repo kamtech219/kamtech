@@ -46,9 +46,8 @@ export function GlobeToMapTransform() {
       try {
         const countries = await loadWorldData()
         setWorldData(countries)
-        console.log("[v0] Successfully loaded world data with", countries.length, "countries")
       } catch (error) {
-        console.log("[v0] Error loading world data:", error)
+        console.error("[v0] Error loading world data:", error)
         // Fallback: create a simple world outline
         const fallbackData = [
           {
@@ -154,7 +153,7 @@ export function GlobeToMapTransform() {
           .attr("opacity", 0.2)
       }
     } catch (error) {
-      console.log("[v0] Error creating graticule:", error)
+      console.error("[v0] Error creating graticule:", error)
     }
 
     // Add countries
@@ -173,7 +172,7 @@ export function GlobeToMapTransform() {
           }
           return pathString
         } catch (error) {
-          console.log("[v0] Error generating path for country:", error)
+          console.error("[v0] Error generating path for country:", error)
           return ""
         }
       })
@@ -201,10 +200,8 @@ export function GlobeToMapTransform() {
           .attr("opacity", 1.0)
       }
     } catch (error) {
-      console.log("[v0] Error creating sphere outline:", error)
+      console.error("[v0] Error creating sphere outline:", error)
     }
-
-    console.log("[v0] Visualization updated with progress:", progress[0])
   }, [worldData, progress, rotation, translation])
 
   const handleAnimate = () => {
