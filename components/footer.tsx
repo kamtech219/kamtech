@@ -1,7 +1,6 @@
 "use client"
 
 import { useCallback } from "react"
-import { LeLoLogo } from "./lelo-logo"
 import { Button } from "./ui/button"
 import { openWhatsAppChat } from "@/lib/whatsapp"
 
