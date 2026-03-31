@@ -33,11 +33,8 @@ function ClientLayoutContent({
 }>) {
   const [showLoader, setShowLoader] = useState(false);
   const [isReady, setIsReady] = useState(false);
-  const [isMounted, setIsMounted] = useState(false);
 
   useEffect(() => {
-    setIsMounted(true);
-
     (async function () {
       const cal = await getCalApi({ namespace: "15min" });
       cal("ui", {
@@ -64,7 +61,7 @@ function ClientLayoutContent({
     window.addEventListener("load", handleLoad);
 
     // If load takes more than 500ms, set showLoader to true
-    // Note: We don't hide children, we just overlay the loader to avoid layout shift bug
+    // Note: We don't hide children, we just overlay the loader to avoid layout shift
     const timer = setTimeout(() => {
       if (!hasLoaded) {
         setShowLoader(true);
