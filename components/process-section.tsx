@@ -1,8 +1,7 @@
 "use client"
 import React from 'react';
-import { cn } from '@/lib/utils';
 import { motion } from 'framer-motion';
-import { CheckCircle2, Search, Settings, GraduationCap, TrendingUp } from 'lucide-react';
+import { Search, Settings, GraduationCap, TrendingUp } from 'lucide-react';
 import { BentoCard } from '@/components/ui/bento-card';
 
 export function ProcessSection() {
