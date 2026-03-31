@@ -3,12 +3,9 @@
 import React, { useEffect, useRef, useState } from "react"
 import * as d3 from "d3"
 import { loadWorldData } from "@/lib/world-data-loader"
+import type { Feature, Geometry, GeoJsonProperties } from "geojson"
 
-interface GeoFeature {
-  type: string
-  geometry: any
-  properties: any
-}
+type GeoFeature = Feature<Geometry, GeoJsonProperties>
 
 export default function Globe({
   className = "",
@@ -39,7 +36,7 @@ export default function Globe({
     const fetchData = async () => {
       try {
         const countries = await loadWorldData()
-        setWorldData(countries as any)
+        setWorldData(countries as GeoFeature[])
       } catch (error) {
         console.error("Error loading globe data:", error)
       }

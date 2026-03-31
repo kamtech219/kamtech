@@ -6,12 +6,9 @@ import { useEffect, useRef, useState } from "react"
 import * as d3 from "d3"
 import { loadWorldData } from "@/lib/world-data-loader"
 import { Button } from "@/components/ui/button"
+import type { Feature, Geometry, GeoJsonProperties } from "geojson"
 
-interface GeoFeature {
-  type: string
-  geometry: any
-  properties: any
-}
+type GeoFeature = Feature<Geometry, GeoJsonProperties>
 
 function interpolateProjection(raw0: any, raw1: any) {
   const mutate: any = d3.geoProjectionMutator((t: number) => (x: number, y: number) => {
@@ -45,12 +42,12 @@ export function GlobeToMapTransform() {
     const fetchData = async () => {
       try {
         const countries = await loadWorldData()
-        setWorldData(countries)
+        setWorldData(countries as GeoFeature[])
         console.log("[v0] Successfully loaded world data with", countries.length, "countries")
       } catch (error) {
-        console.log("[v0] Error loading world data:", error)
+        console.error("[v0] Error loading world data:", error)
         // Fallback: create a simple world outline
-        const fallbackData = [
+        const fallbackData: GeoFeature[] = [
           {
             type: "Feature",
             geometry: {
@@ -154,7 +151,7 @@ export function GlobeToMapTransform() {
           .attr("opacity", 0.2)
       }
     } catch (error) {
-      console.log("[v0] Error creating graticule:", error)
+      console.error("[v0] Error creating graticule:", error)
     }
 
     // Add countries
@@ -173,7 +170,7 @@ export function GlobeToMapTransform() {
           }
           return pathString
         } catch (error) {
-          console.log("[v0] Error generating path for country:", error)
+          console.error("[v0] Error generating path for country:", error)
           return ""
         }
       })
@@ -201,7 +198,7 @@ export function GlobeToMapTransform() {
           .attr("opacity", 1.0)
       }
     } catch (error) {
-      console.log("[v0] Error creating sphere outline:", error)
+      console.error("[v0] Error creating sphere outline:", error)
     }
 
     console.log("[v0] Visualization updated with progress:", progress[0])

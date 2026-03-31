@@ -1,8 +1,17 @@
 import { feature } from "topojson-client"
+import type { Topology, GeometryCollection } from "topojson-specification"
+import type { FeatureCollection, Geometry, GeoJsonProperties } from "geojson"
 
-let cachedWorldData: any = null
+export interface WorldAtlasTopology extends Topology {
+  objects: {
+    countries: GeometryCollection
+    land: GeometryCollection
+  }
+}
 
-export const loadWorldData = async () => {
+let cachedWorldData: FeatureCollection<Geometry, GeoJsonProperties>["features"] | null = null
+
+export const loadWorldData = async (): Promise<FeatureCollection<Geometry, GeoJsonProperties>["features"]> => {
   if (cachedWorldData) {
     return cachedWorldData
   }
@@ -11,10 +20,10 @@ export const loadWorldData = async () => {
     ;(globalThis as any).worldDataPromise = (async () => {
       try {
         const response = await fetch("https://cdn.jsdelivr.net/npm/world-atlas@2/countries-110m.json")
-        const world: any = await response.json()
-        const countries = (feature(world, world.objects.countries) as any).features
-        cachedWorldData = countries
-        return countries
+        const world: WorldAtlasTopology = await response.json()
+        const countries = feature(world, world.objects.countries) as FeatureCollection<Geometry, GeoJsonProperties>
+        cachedWorldData = countries.features
+        return countries.features
       } catch (error) {
         console.error("Error loading world data:", error)
         // Reset the promise on error so we can retry later
