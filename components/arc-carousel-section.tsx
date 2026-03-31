@@ -96,7 +96,17 @@ const logos: Logo[] = [
   },
 ]
 
-function MovingLogo({ logo, index, total, radius }: { logo: Logo, index: number, total: number, radius: number }) {
+interface MovingLogoProps {
+  logo: {
+    name: string
+    src: string
+  }
+  index: number
+  total: number
+  radius: number
+}
+
+function MovingLogo({ logo, index, total, radius }: MovingLogoProps) {
   const time = useTime()
   
   // Continuous 360 degree rotation logic
