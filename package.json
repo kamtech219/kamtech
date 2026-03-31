@@ -7,7 +7,7 @@
     "dev": "next dev",
     "lint": "next lint",
     "start": "next start",
-    "test": "node --experimental-strip-types --test lib/whatsapp.test.ts app/robots.test.ts components/hooks/use-mouse-position.test.ts"
+    "test": "node --experimental-strip-types --test lib/whatsapp.test.ts app/robots.test.ts components/hooks/use-debounced-dimensions.test.ts"
   },
   "dependencies": {
     "@calcom/embed-react": "^1.5.3",
@@ -90,6 +90,7 @@
     "@types/react": "^18",
     "@types/react-dom": "^18",
     "@types/topojson-specification": "^1.0.5",
+    "global-jsdom": "^29.0.0",
     "jsdom": "^29.0.1",
     "postcss": "^8.5",
     "tailwindcss": "^4.1.9",
