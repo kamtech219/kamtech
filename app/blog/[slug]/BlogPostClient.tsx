@@ -8,6 +8,7 @@ import { Calendar, Clock, ChevronLeft, User, ArrowRight, Twitter, Linkedin, Link
 import { blogPosts } from "@/lib/blog-data";
 import { Header } from "@/components/header";
 import { toast } from "sonner";
+import sanitizeHtml from "sanitize-html";
 
 export default function BlogPostClient({ slug }: { slug: string }) {
   const post = blogPosts.find((p) => p.slug === slug);
@@ -131,7 +132,15 @@ export default function BlogPostClient({ slug }: { slug: string }) {
               prose-li:text-blue-100/70 prose-li:text-lg
               prose-strong:text-white prose-strong:font-bold
               prose-ul:my-8 prose-ul:list-disc prose-ul:pl-6"
-            dangerouslySetInnerHTML={{ __html: post.content }}
+            dangerouslySetInnerHTML={{
+              __html: sanitizeHtml(post.content, {
+                allowedTags: sanitizeHtml.defaults.allowedTags.concat(['img']),
+                allowedAttributes: {
+                  ...sanitizeHtml.defaults.allowedAttributes,
+                  'img': ['src', 'alt', 'width', 'height']
+                }
+              })
+            }}
           />
 
           {/* Share Section */}
