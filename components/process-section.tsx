@@ -1,5 +1,4 @@
 "use client"
-import React from 'react';
 import { motion } from 'framer-motion';
 import { Search, Settings, GraduationCap, TrendingUp } from 'lucide-react';
 import { BentoCard } from '@/components/ui/bento-card';
