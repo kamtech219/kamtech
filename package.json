@@ -7,7 +7,7 @@
     "dev": "next dev",
     "lint": "next lint",
     "start": "next start",
-    "test": "node --experimental-strip-types --test lib/whatsapp.test.ts app/robots.test.ts"
+    "test": "node --experimental-strip-types --test lib/whatsapp.test.ts app/robots.test.ts components/hooks/use-mouse-position.test.ts"
   },
   "dependencies": {
     "@calcom/embed-react": "^1.5.3",
@@ -82,11 +82,15 @@
   },
   "devDependencies": {
     "@tailwindcss/postcss": "^4.1.9",
+    "@testing-library/dom": "^10.4.1",
+    "@testing-library/react": "^16.3.2",
     "@types/geojson": "^7946.0.16",
+    "@types/jsdom": "^28.0.1",
     "@types/node": "^22",
     "@types/react": "^18",
     "@types/react-dom": "^18",
     "@types/topojson-specification": "^1.0.5",
+    "jsdom": "^29.0.1",
     "postcss": "^8.5",
     "tailwindcss": "^4.1.9",
     "tw-animate-css": "1.3.3",
