@@ -134,6 +134,7 @@ export function ParticleTextEffect({ words = DEFAULT_WORDS }: ParticleTextEffect
   const frameCountRef = useRef(0)
   const wordIndexRef = useRef(0)
   const mouseRef = useRef({ x: 0, y: 0, isPressed: false, isRightClick: false })
+  const wordCacheRef = useRef<Map<string, Vector2D[]>>(new Map())
 
   const pixelSteps = 6
   const drawAsPoints = true
@@ -161,21 +162,51 @@ export function ParticleTextEffect({ words = DEFAULT_WORDS }: ParticleTextEffect
   const nextWord = (word: string, canvas: HTMLCanvasElement) => {
     if (canvas.width === 0 || canvas.height === 0) return;
 
-    // Create off-screen canvas for text rendering
-    const offscreenCanvas = document.createElement("canvas")
-    offscreenCanvas.width = canvas.width
-    offscreenCanvas.height = canvas.height
-    const offscreenCtx = offscreenCanvas.getContext("2d")!
+    let targetCoords = wordCacheRef.current.get(word)
 
-    // Draw text
-    offscreenCtx.fillStyle = "white"
-    offscreenCtx.font = "bold 100px Arial"
-    offscreenCtx.textAlign = "center"
-    offscreenCtx.textBaseline = "middle"
-    offscreenCtx.fillText(word, canvas.width / 2, canvas.height / 3)
+    if (!targetCoords) {
+      // Create off-screen canvas for text rendering
+      const offscreenCanvas = document.createElement("canvas")
+      offscreenCanvas.width = canvas.width
+      offscreenCanvas.height = canvas.height
+      const offscreenCtx = offscreenCanvas.getContext("2d")!
 
-    const imageData = offscreenCtx.getImageData(0, 0, canvas.width, canvas.height)
-    const pixels = imageData.data
+      // Draw text
+      offscreenCtx.fillStyle = "white"
+      offscreenCtx.font = "bold 100px Arial"
+      offscreenCtx.textAlign = "center"
+      offscreenCtx.textBaseline = "middle"
+      offscreenCtx.fillText(word, canvas.width / 2, canvas.height / 3)
+
+      const imageData = offscreenCtx.getImageData(0, 0, canvas.width, canvas.height)
+      const pixels = imageData.data
+
+      // Collect coordinates
+      const coordsIndexes: number[] = []
+      for (let i = 0; i < pixels.length; i += pixelSteps * 4) {
+        coordsIndexes.push(i)
+      }
+
+      // Shuffle coordinates for fluid motion
+      for (let i = coordsIndexes.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1))
+        ;[coordsIndexes[i], coordsIndexes[j]] = [coordsIndexes[j], coordsIndexes[i]]
+      }
+
+      targetCoords = []
+      for (const coordIndex of coordsIndexes) {
+        const pixelIndex = coordIndex
+        const alpha = pixels[pixelIndex + 3]
+
+        if (alpha > 0) {
+          const x = (pixelIndex / 4) % canvas.width
+          const y = Math.floor(pixelIndex / 4 / canvas.width)
+          targetCoords.push({ x, y })
+        }
+      }
+
+      wordCacheRef.current.set(word, targetCoords)
+    }
 
     // Generate new color
     const newColor = {
@@ -187,65 +218,45 @@ export function ParticleTextEffect({ words = DEFAULT_WORDS }: ParticleTextEffect
     const particles = particlesRef.current
     let particleIndex = 0
 
-    // Collect coordinates
-    const coordsIndexes: number[] = []
-    for (let i = 0; i < pixels.length; i += pixelSteps * 4) {
-      coordsIndexes.push(i)
-    }
+    for (const coord of targetCoords) {
+      let particle: Particle
 
-    // Shuffle coordinates for fluid motion
-    for (let i = coordsIndexes.length - 1; i > 0; i--) {
-      const j = Math.floor(Math.random() * (i + 1))
-      ;[coordsIndexes[i], coordsIndexes[j]] = [coordsIndexes[j], coordsIndexes[i]]
-    }
+      if (particleIndex < particles.length) {
+        particle = particles[particleIndex]
+        particle.isKilled = false
+        particleIndex++
+      } else {
+        particle = new Particle()
 
-    for (const coordIndex of coordsIndexes) {
-      const pixelIndex = coordIndex
-      const alpha = pixels[pixelIndex + 3]
+        const randomPos = generateRandomPos(
+          canvas.width / 2,
+          canvas.height / 2,
+          (canvas.width + canvas.height) / 2,
+          canvas.width,
+          canvas.height,
+        )
+        particle.pos.x = randomPos.x
+        particle.pos.y = randomPos.y
 
-      if (alpha > 0) {
-        const x = (pixelIndex / 4) % canvas.width
-        const y = Math.floor(pixelIndex / 4 / canvas.width)
+        particle.maxSpeed = Math.random() * 6 + 4
+        particle.maxForce = particle.maxSpeed * 0.05
+        particle.particleSize = Math.random() * 6 + 6
+        particle.colorBlendRate = Math.random() * 0.0275 + 0.0025
 
-        let particle: Particle
-
-        if (particleIndex < particles.length) {
-          particle = particles[particleIndex]
-          particle.isKilled = false
-          particleIndex++
-        } else {
-          particle = new Particle()
-
-          const randomPos = generateRandomPos(
-            canvas.width / 2,
-            canvas.height / 2,
-            (canvas.width + canvas.height) / 2,
-            canvas.width,
-            canvas.height,
-          )
-          particle.pos.x = randomPos.x
-          particle.pos.y = randomPos.y
-
-          particle.maxSpeed = Math.random() * 6 + 4
-          particle.maxForce = particle.maxSpeed * 0.05
-          particle.particleSize = Math.random() * 6 + 6
-          particle.colorBlendRate = Math.random() * 0.0275 + 0.0025
-
-          particles.push(particle)
-        }
-
-        // Set color transition
-        particle.startColor = {
-          r: particle.startColor.r + (particle.targetColor.r - particle.startColor.r) * particle.colorWeight,
-          g: particle.startColor.g + (particle.targetColor.g - particle.startColor.g) * particle.colorWeight,
-          b: particle.startColor.b + (particle.targetColor.b - particle.startColor.b) * particle.colorWeight,
-        }
-        particle.targetColor = newColor
-        particle.colorWeight = 0
-
-        particle.target.x = x
-        particle.target.y = y
+        particles.push(particle)
       }
+
+      // Set color transition
+      particle.startColor = {
+        r: particle.startColor.r + (particle.targetColor.r - particle.startColor.r) * particle.colorWeight,
+        g: particle.startColor.g + (particle.targetColor.g - particle.startColor.g) * particle.colorWeight,
+        b: particle.startColor.b + (particle.targetColor.b - particle.startColor.b) * particle.colorWeight,
+      }
+      particle.targetColor = newColor
+      particle.colorWeight = 0
+
+      particle.target.x = coord.x
+      particle.target.y = coord.y
     }
 
     // Kill remaining particles
@@ -363,6 +374,7 @@ export function ParticleTextEffect({ words = DEFAULT_WORDS }: ParticleTextEffect
 
     const handleResize = () => {
       resizeCanvas()
+      wordCacheRef.current.clear() // Clear cache on resize as coordinates change
       // Reinitialize particles with new dimensions
       if (canvas.width > 0 && canvas.height > 0) {
           nextWord(words[wordIndexRef.current], canvas)
