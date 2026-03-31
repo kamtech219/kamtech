@@ -1,5 +1,3 @@
-import Image from "next/image"
-
 export function LeLoLogo({ className = "" }: { className?: string }) {
   return (
     <div className={`flex items-center gap-2 sm:gap-3 ${className}`}>
